@@ -9,6 +9,7 @@ public class PlayableController : MonoBehaviour
     /// <summary> 모델 위치를 감안한 보정 위치 </summary>
     protected Vector3 _currPosition { get => transform.position + Vector3.up; }
     float Speed = 10f;
+    static float walkSFXtime = 3.0f;
     /// <summary> animation 연결 및 초기화 </summary>
     protected void Init()
     {
@@ -25,6 +26,28 @@ public class PlayableController : MonoBehaviour
 
     /// <summary> 현재 플레이어 상태 </summary>
     PlayerState _state = PlayerState.Idle;
+
+    void Idle_PlayerState()
+    {
+        if(_state != PlayerState.Idle)
+        {
+            WalkSound_End();
+
+            _state = PlayerState.Idle;
+        }
+            
+    }
+
+    void Move_PlayerState()
+    {
+        if (_state != PlayerState.Move)
+        {
+            WalkSound_Start();
+            _state = PlayerState.Move;
+        }
+
+    }
+
     private void FixedUpdate()
     {
         if (_state == PlayerState.Move)
@@ -46,14 +69,15 @@ public class PlayableController : MonoBehaviour
     /// <summary> 조이스틱에 따라 방향 결정 </summary>
     public void SetDirection(Vector2 dir)
     {
-        _state = PlayerState.Move;
+        Move_PlayerState();
         _joystickDirection = dir;
+
         SeeDirection(dir);
     }
     /// <summary> 조이스틱 조작 종료 </summary>
     public void StopMove()
     {
-        _state = PlayerState.Idle;
+        Idle_PlayerState();
     }
 
     #endregion Move
@@ -122,4 +146,15 @@ public class PlayableController : MonoBehaviour
     }
     #endregion Animation
 
+    #region Sound
+    private void WalkSound_Start()
+    {
+        GameManager.Sound.WalkPlay();
+    }
+    private void WalkSound_End()
+    {
+        GameManager.Sound.StopWalkPlay();
+
+    }
+    #endregion Sound
 }

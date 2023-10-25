@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class SoundManager
@@ -30,6 +31,8 @@ public class SoundManager
             }
 
             _audioSources[(int)Define.Sounds.BGM].loop = true;
+            _audioSources[(int)Define.Sounds.Walk].loop = true;
+
         }
         else
         {
@@ -40,38 +43,64 @@ public class SoundManager
             }
 
             _audioSources[(int)Define.Sounds.BGM].loop = true;
+            _audioSources[(int)Define.Sounds.Walk].loop = true;
         }
 
         _bgmvolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
         _sfxvolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
 
     }
-
+    #region Play
     /// <summary>
     /// SFX용 PlayOneShot으로 구현 
     /// </summary>
     /// <param name="SFXSound"> Define.SFX Enum 에서 가져오기를 바람 </param>
     /// <param name="volume"></param>
 
-    public void Play(Define.SFX SFXSound, float volume = 1.0f)
+    public void Play(Define.SFX SFXSound)
     {
         string path = $"{SFXSound}";
         AudioClip audioClip = GetOrAddAudioClip(path, Define.Sounds.SFX);
-        Play(audioClip, Define.Sounds.SFX, volume);
+        Play(audioClip, Define.Sounds.SFX);
     }
     /// <summary>
     /// BGM용 Play로 구현
     /// </summary>
     /// <param name="BGMSound">Define.BGM Enum 에서 가져오기를 바람 </param>
     /// <param name="volume"></param>
-    public void Play(Define.BGM BGMSound, float volume = 1.0f)
+    public void Play(Define.BGM BGMSound)
     {
         string path = $"{BGMSound}";
         AudioClip audioClip = GetOrAddAudioClip(path, Define.Sounds.BGM);
-        Play(audioClip, Define.Sounds.BGM, volume);
+        Play(audioClip, Define.Sounds.BGM);
     }
 
-    void Play(AudioClip audioClip, Define.Sounds type = Define.Sounds.SFX, float volume = 1.0f)
+    /// <summary>
+    /// 걷기는  Loop 로 음악을 사용해야 하나 BGM은 아니고 겹쳐서 들려야 하므로 따로 사용해준다.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="volume"></param>
+    public void WalkPlay()
+    {
+
+        AudioSource audioSource = _audioSources[(int)Define.Sounds.Walk];
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+
+        audioSource.clip = GetOrAddAudioClip("TMP_Walk", Define.Sounds.Walk);
+        audioSource.Play();
+
+    }
+    public void StopWalkPlay()
+    {
+
+        AudioSource audioSource = _audioSources[(int)Define.Sounds.Walk];
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+
+
+    }
+    void Play(AudioClip audioClip, Define.Sounds type = Define.Sounds.SFX)
     {
         if (audioClip == null)
             return;
@@ -82,17 +111,16 @@ public class SoundManager
             if (audioSource.isPlaying)
                 audioSource.Stop();
 
-            audioSource.volume = volume;
             audioSource.clip = audioClip;
             audioSource.Play();
         }
         else
         {
             AudioSource audioSource = _audioSources[(int)Define.Sounds.SFX];
-            audioSource.volume = volume;
             audioSource.PlayOneShot(audioClip);
         }
     }
+    #endregion Play
 
     AudioClip GetOrAddAudioClip(string path, Define.Sounds type = Define.Sounds.SFX)
     {

@@ -10,6 +10,7 @@ public class Define
     {
         BGM,
         SFX,
+        Walk,
         MaxCount
     }
     public enum BGM
@@ -19,6 +20,8 @@ public class Define
     }
     public enum SFX
     {
+        TMP_Walk,
+        TMP_Door,
         MaxCount
     }
     public enum State
