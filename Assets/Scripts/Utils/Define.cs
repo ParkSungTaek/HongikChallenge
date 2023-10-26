@@ -51,5 +51,27 @@ public class Define
         Game,
     }
 
+    public enum Field
+    {
+        Start,
 
+        Lobby,
+        Room1,
+        Room2,
+        Room3,
+        Room4,
+
+        Path1,
+        Path2,
+        Path3,
+        Path4,
+        Path5,
+
+    }
+
+    public enum InteractableObjs
+    {
+        Object0,
+
+    }
 }

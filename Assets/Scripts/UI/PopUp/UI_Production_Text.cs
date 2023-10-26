@@ -124,7 +124,7 @@ public class UI_Production_Text : UI_Popup
 
         yield return new WaitForSeconds (5.0f - (14 * _tick)) ;
 
-        GameManager.UI.ClosePopUpUI(this);
+        GameManager.UI.ClosePopupUI(this);
 
         
     }

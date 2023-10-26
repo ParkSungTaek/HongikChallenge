@@ -8,9 +8,19 @@ public class PlayableController : MonoBehaviour
 {
     /// <summary> 모델 위치를 감안한 보정 위치 </summary>
     protected Vector3 _currPosition { get => transform.position + Vector3.up; }
-    float Speed = 10f;
+    float Speed = 5f;
     static float walkSFXtime = 3.0f;
     /// <summary> animation 연결 및 초기화 </summary>
+
+    /// 보여주기 위한 영역 나중에 반드시 지울것
+
+    public Define.Field Field;
+    public void SetField(Define.Field field)
+    {
+        Field = field;
+    }
+    ///
+
     protected void Init()
     {
     }
@@ -86,6 +96,7 @@ public class PlayableController : MonoBehaviour
     #region Jump
     public void Jump()
     {
+
     }
 
     #endregion Jump

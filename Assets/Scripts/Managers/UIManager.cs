@@ -117,7 +117,7 @@ namespace Client
         /// 특정 pop up UI 닫기, stack의 제일 위가 아니면 수행 X
         /// </summary>
         /// <param name="popup">닫고자 하는 popup</param>
-        public void ClosePopUpUI(UI_Popup popup)
+        public void ClosePopupUI(UI_Popup popup)
         {
             if(_popupStack.Count <= 0) return;
 

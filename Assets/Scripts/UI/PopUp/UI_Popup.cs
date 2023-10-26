@@ -13,7 +13,7 @@ public abstract class UI_Popup : UI_Base
     /// <summary> pop up 닫기 </summary>
     public virtual void ClosePopUpUI()
     {
-        GameManager.UI.ClosePopUpUI(this);
+        GameManager.UI.ClosePopupUI(this);
     }
 
 }
