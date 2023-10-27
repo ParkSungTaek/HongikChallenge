@@ -38,8 +38,12 @@ public class GameManager : MonoBehaviour
             _instance = gm.GetComponent<GameManager>();
             DontDestroyOnLoad(gm);
 
+
+
             _instance._soundManager.Init();
             _instance._inGameDataManager.Init();
+
+
         }
 
     }

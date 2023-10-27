@@ -67,6 +67,9 @@ public class Define
         Path4,
         Path5,
 
+        MaxCount
+
+
     }
 
     public enum InteractableObjs

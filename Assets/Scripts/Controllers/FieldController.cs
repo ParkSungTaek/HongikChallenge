@@ -9,9 +9,8 @@ public class FieldController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameManager.InGameData.MyField = ThisField;
+        GameManager.InGameData.VisitRoom[(int)ThisField] = true; 
     }
-
-
 
 
 }
