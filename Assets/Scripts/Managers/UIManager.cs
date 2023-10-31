@@ -102,6 +102,7 @@ namespace Client
             else
             {
                 popupUI = Util.GetOrAddComponent<T>(popup);
+                popupUI.ReOpenPopUpUI();
                 popupUI.GetComponent<Canvas>().sortingOrder = _order++;
             }
 

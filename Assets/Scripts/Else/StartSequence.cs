@@ -18,11 +18,20 @@ public class StartSequence : MonoBehaviour
     {
         if (GameManager.InGameData.StartSequence)
         {
-
+            GameManager.InGameData.StartSequence = false;
+            _spriteMask = transform.Find("SpriteMask").gameObject;
+            _coroutine = StartCoroutine(CustomUpdate());
+            Time.timeScale = 0;
         }
-        _spriteMask = transform.Find("SpriteMask").gameObject;
-        _coroutine = StartCoroutine(CustomUpdate());
-        Time.timeScale = 0;
+        else
+        {
+            if(_spriteMask == null)
+            {
+                //_spriteMask = transform.Find("SpriteMask").gameObject;
+                Destroy(this.gameObject);
+
+            }
+        }
     }
 
     // Update is called once per frame

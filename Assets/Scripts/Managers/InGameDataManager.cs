@@ -8,6 +8,18 @@ namespace Client
     public class InGameDataManager
     {
 
+        #region GoogleSheet
+        public List<int> UseableQuestion;
+
+        public StoryWrapper StoryWrapper = new StoryWrapper();
+
+        public QuestionWrapper QuestionWrapper = new QuestionWrapper();
+
+        #endregion GoogleSheet
+
+
+
+        public string Name { get; set; } = "";
         /// <summary> 현재 플레이어 </summary>
         public PlayableController MyPlayer { get; private set; }
         /// <summary> 이미 스타트 시퀀스("실제의 양태")봐야 하나? </summary>

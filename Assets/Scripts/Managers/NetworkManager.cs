@@ -8,14 +8,14 @@ using GoogleSheetsToUnity.ThirdPary;
 
 //https://console.developers.google.com/
 
-public class NetworkManager : MonoBehaviour
+public class NetworkManager
 {
     GoogleSheet data;
     // Start is called before the first frame update
+
     public void Init()
     {
-        data = Resources.Load<GoogleSheet>("ScriptableObj/TestData");
-        
+        data = Resources.Load<GoogleSheet>("ScriptableObj/GoogleSheet");
         if (data != null)
         {
             Debug.Log("GET");
@@ -28,22 +28,52 @@ public class NetworkManager : MonoBehaviour
     }
     public void Run()
     {
-        UpdateStats(UpdateMethodOne);
+        UpdateStory(GetStoryData);
+        UpdateQuestion(GetQuestionData);
+
 
     }
-    void UpdateStats(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
+    void UpdateStory(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
     {
-        SpreadsheetManager.Read(new GSTU_Search(data.associatedSheet, data.associatedWorksheet), callback, mergedCells);
+        SpreadsheetManager.Read(new GSTU_Search(data.associatedSheet, data.associatedStoryWorksheet), callback, mergedCells);
     }
-
-    void UpdateMethodOne(GstuSpreadSheet ss)
+    void UpdateQuestion(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
+    {
+        SpreadsheetManager.Read(new GSTU_Search(data.associatedSheet, data.associatedQuestionWorksheet), callback, mergedCells);
+    }
+    void GetStoryData(GstuSpreadSheet ss)
     {
         int num = ss.rows.secondaryKeyLink.Count - 1;
         try
         {
             for (int idx = 0; idx < num; idx++)
             {
-                data.UpdateStats(ss.rows[idx.ToString()], idx.ToString());
+                data.GetStoryData(ss.rows[idx.ToString()]);
+            }
+        }
+        catch
+        (Exception e)
+        {
+            Debug.Log(e);
+            return;
+        }
+        finally
+        {
+            Debug.Log("StoryFinish");
+
+        }
+
+    }
+    void GetQuestionData(GstuSpreadSheet ss)
+    {
+        int num = ss.rows.secondaryKeyLink.Count - 1;
+        GameManager.InGameData.QuestionWrapper.Init(num);
+        
+        try
+        {
+            for (int idx = 0; idx < num; idx++)
+            {
+                data.GetQuestionData(ss.rows[idx.ToString()], idx.ToString());
             }
         }
         catch
@@ -54,8 +84,6 @@ public class NetworkManager : MonoBehaviour
         finally
         {
             Debug.Log("QuestionFinish");
-            Resources.UnloadAsset(data);
-            GameManager.InGameData.Clear();
 
         }
 

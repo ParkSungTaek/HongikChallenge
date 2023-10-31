@@ -77,4 +77,35 @@ public class Define
         Object0,
 
     }
+
+    public enum StoryInteractOBJs
+    {
+        PamphletText,
+        Ball,
+        Box,
+        tmp0,
+        tmp1,
+        tmp2,
+        tmp3,
+        tmp4,
+        tmp5,
+        tmp6,
+        tmp7,
+        tmp8,
+        tmp9,
+        tmp10,
+
+        MaxCount,
+    }
+    public enum ActionData
+    {
+        Question,
+        End,
+
+
+        None,
+        MaxCount,
+    }
+
+
 }

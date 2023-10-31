@@ -11,7 +11,6 @@ public class PlayerFoot : MonoBehaviour
         MyPlayer = transform.parent.GetComponent<PlayableController>();
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
 

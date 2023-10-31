@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public abstract class InteractObj : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public abstract class InteractObj : MonoBehaviour
 
     private void OnMouseDown()
     {
-        InteractAction();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            InteractAction();
+        }
     }
     protected abstract void InteractAction();
 }
