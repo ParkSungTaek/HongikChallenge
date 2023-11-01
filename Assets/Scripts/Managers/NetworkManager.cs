@@ -28,8 +28,25 @@ public class NetworkManager
     }
     public void Run()
     {
-        UpdateStory(GetStoryData);
-        UpdateQuestion(GetQuestionData);
+        try{
+            UpdateStory(GetStoryData);
+            UpdateQuestion(GetQuestionData);
+
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+            try
+            {
+                UpdateStory(GetStoryData);
+                UpdateQuestion(GetQuestionData);
+
+            }
+            catch(Exception ex2)
+            {
+                Debug.Log(ex2);
+            }
+        }
 
 
     }
