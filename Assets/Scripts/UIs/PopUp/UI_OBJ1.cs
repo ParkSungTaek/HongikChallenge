@@ -40,6 +40,11 @@ public class UI_OBJ1 : UI_Popup
         GetText((int)Texts.PamphletText).text = sb.ToString();
 
     }
+    public void GetError(string er)
+    {
+        GetText((int)Texts.PamphletText).text = er;
+    }
+
 
     #region Btn
     void ButtonBind()

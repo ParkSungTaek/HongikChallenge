@@ -1,4 +1,5 @@
 using Client;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,23 +42,21 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gm);
 
 
-
+            
             _instance._soundManager.Init();
             _instance._inGameDataManager.Init();
             _instance._networkManager.Init();
 
-
-
+            /// 네트워크 통신부
+            Instance.StartCoroutine(NetworkManager.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120",NetworkManager.data.GetStoryData));
         }
 
     }
-   
-    /// <summary> 모든 정보 초기화 </summary>
     public static void Clear()
     {
         _instance._resourceManager.Clear();
         _instance._soundManager.Clear();
     }
 
-   
+
 }

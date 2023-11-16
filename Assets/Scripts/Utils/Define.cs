@@ -5,7 +5,10 @@ using UnityEngine;
 public class Define
 {
 
-    
+    public enum WebDataType
+    {
+
+    }
     public enum Sounds
     {
         BGM,

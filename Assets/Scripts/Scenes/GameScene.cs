@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameScene : MonoBehaviour
@@ -9,6 +10,14 @@ public class GameScene : MonoBehaviour
         GameManager.UI.ShowPopupUI<UI_Production_Text>();
         GameManager.UI.ShowSceneUI<UI_GameScene>();
 
-
+        
     }
+
+
+    private void Start()
+    {
+        //StartCoroutine(timedelay());
+        //GameManager.NetworkManager.Run();
+    }
+
 }

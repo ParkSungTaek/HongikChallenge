@@ -5,105 +5,79 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
 using GoogleSheetsToUnity.ThirdPary;
+using UnityEngine.Networking;
+using System.Text;
 
 //https://console.developers.google.com/
 
 public class NetworkManager
 {
-    GoogleSheet data;
+    public GoogleSheet data { get; private set; }
     // Start is called before the first frame update
 
     public void Init()
     {
         data = Resources.Load<GoogleSheet>("ScriptableObj/GoogleSheet");
-        if (data != null)
-        {
-            Debug.Log("GET");
-            Run();
-        }
-        else
-        {
-            Debug.Log("Can't");
-        }
     }
-    public void Run()
+
+    /// <summary>
+    /// 구글 스프레드 시트 를 받아와 가공하는 함수
+    /// </summary>
+    /// <param name="GoogleSheetsID"> 구글 스프레드 시트의 ID</param>
+    /// <param name="ManufactureData"> 스프레드 시트 가공 함수 input은 한 줄 을 받아야함, Cell은 탭('\t')으로 구분</param>
+    /// <param name="WorkSheetsID"> 시트의 WorkSheet 구분 default 는 0 첫 장</param>
+    /// <param name="startCell"> 시작 셀 default A1</param>
+    /// <param name="endCell"> 끝 셀 default E </param>
+    /// <returns></returns>
+    public IEnumerator RequestAndSetItemDatas(string GoogleSheetsID, Action<string> ManufactureData, string WorkSheetsID = "0", string endCell = "Z", string startCell = "A2")
     {
-        try{
-            UpdateStory(GetStoryData);
-            UpdateQuestion(GetQuestionData);
-
-        }
-        catch (Exception ex)
-        {
-            Debug.LogException(ex);
-            try
-            {
-                UpdateStory(GetStoryData);
-                UpdateQuestion(GetQuestionData);
-
-            }
-            catch(Exception ex2)
-            {
-                Debug.Log(ex2);
-            }
-        }
-
-
-    }
-    void UpdateStory(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
-    {
-        SpreadsheetManager.Read(new GSTU_Search(data.associatedSheet, data.associatedStoryWorksheet), callback, mergedCells);
-    }
-    void UpdateQuestion(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
-    {
-        SpreadsheetManager.Read(new GSTU_Search(data.associatedSheet, data.associatedQuestionWorksheet), callback, mergedCells);
-    }
-    void GetStoryData(GstuSpreadSheet ss)
-    {
-        int num = ss.rows.secondaryKeyLink.Count - 1;
-        try
-        {
-            for (int idx = 0; idx < num; idx++)
-            {
-                data.GetStoryData(ss.rows[idx.ToString()]);
-            }
-        }
-        catch
-        (Exception e)
-        {
-            Debug.Log(e);
-            return;
-        }
-        finally
-        {
-            Debug.Log("StoryFinish");
-
-        }
-
-    }
-    void GetQuestionData(GstuSpreadSheet ss)
-    {
-        int num = ss.rows.secondaryKeyLink.Count - 1;
-        GameManager.InGameData.QuestionWrapper.Init(num);
         
-        try
+        StringBuilder sb = new StringBuilder();
+        sb.Append("https://docs.google.com/spreadsheets/d/");
+        sb.Append(GoogleSheetsID);
+        sb.Append("/export?format=tsv");
+        sb.Append("&gid="+data.associatedStoryWorksheet);
+        sb.Append("&range=" + startCell + ":" + endCell);
+
+        Debug.Log(sb.ToString());
+
+
+        using (UnityWebRequest webData = UnityWebRequest.Get(sb.ToString()))
         {
-            for (int idx = 0; idx < num; idx++)
+            
+            yield return webData.SendWebRequest();
+
+#if UNITY_EDITOR
+            //Debug.Log(webData.downloadHandler.text);
+#endif
+            string[] dataLines = webData.downloadHandler.text.Split('\n');
+            Action[] ManufactureDatas = new Action[dataLines.Length];
+            for (int i = 0; i< dataLines.Length; i++)
             {
-                data.GetQuestionData(ss.rows[idx.ToString()], idx.ToString());
+                ManufactureData(dataLines[i]);
             }
-        }
-        catch
-        (Exception e)
-        {
-            return;
-        }
-        finally
-        {
-            Debug.Log("QuestionFinish");
+
 
         }
 
     }
+
+
+    #region ManufactureData
+
+    public void ManufactureStoryData(string data)
+    {
+
+        string[] tmp = data.Split('\t');
+
+        Debug.Log($"{tmp[0]} {tmp[1]} {tmp[2]} {tmp[3]} {tmp[4]}");
+
+
+    }
+    #endregion
+
+
+
+
 
 }

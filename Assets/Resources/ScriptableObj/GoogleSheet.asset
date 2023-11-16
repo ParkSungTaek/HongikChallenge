@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GoogleSheet
   m_EditorClassIdentifier: 
   associatedSheet: 1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120
-  associatedStoryWorksheet: Story
-  associatedQuestionWorksheet: Question
+  associatedStoryWorksheet: 0
+  associatedQuestionWorksheet: 924231598

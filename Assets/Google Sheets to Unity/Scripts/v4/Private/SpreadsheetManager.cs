@@ -17,7 +17,7 @@ namespace GoogleSheetsToUnity
     /// Partial class for the spreadsheet manager to handle all private functions
     /// </summary>
     public partial class SpreadsheetManager
-    {   
+    {
         /// <summary>
         /// Chekcs for a valid token and if its out of date attempt to refresh it
         /// </summary>
@@ -34,7 +34,7 @@ namespace GoogleSheetsToUnity
                 yield return EditorCoroutineRunner.StartCoroutine(GoogleAuthrisationHelper.CheckForRefreshOfToken());
             }
 #endif
-        }    
+        }
 
         /// <summary>
         /// Reads information from a spreadsheet
@@ -45,26 +45,52 @@ namespace GoogleSheetsToUnity
         public static void Read(GSTU_Search search, UnityAction<GstuSpreadSheet> callback, bool containsMergedCells = false)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("https://sheets.googleapis.com/v4/spreadsheets");
-            sb.Append("/" + search.sheetId);
-            sb.Append("/values");
-            sb.Append("/" + search.worksheetName + "!" + search.startCell + ":" + search.endCell);
-            sb.Append("?access_token=" + Config.gdr.access_token);
+            //sb.Append("https://sheets.googleapis.com/v4/spreadsheets");
+            //sb.Append("/" + search.sheetId);
+            //sb.Append("/values");
+            //sb.Append("/" + search.worksheetName + "!" + search.startCell + ":" + search.endCell);
+            //sb.Append("?access_token=" + Config.gdr.access_token);
+
+
+            sb.Append("https://docs.google.com/spreadsheets/d/");
+            sb.Append(search.sheetId);
+            sb.Append("/edit#gid=");
+            sb.Append(search.worksheetName);
+            sb.Append("&range=" + search.startCell + ":" + search.endCell);
+
+            ReadData(sb.ToString());
 
             UnityWebRequest request = UnityWebRequest.Get(sb.ToString());
+
 
             if (Application.isPlaying)
             {
                 new Task(Read(request, search, containsMergedCells, callback));
             }
 #if UNITY_EDITOR
-            else
-            {
-                EditorCoroutineRunner.StartCoroutine(Read(request,  search, containsMergedCells, callback));
-            }
+            //else
+            // {
+            //    EditorCoroutineRunner.StartCoroutine(Read(request,  search, containsMergedCells, callback));
+            // }
 #endif
         }
-        
+        static public void ReadData(string www)
+        {
+
+        }
+
+        public IEnumerator RequestAndSetItemDatas(string www)
+        {
+            UnityWebRequest wwww = UnityWebRequest.Get(www);
+            yield return wwww.SendWebRequest();
+
+            string data = wwww.downloadHandler.text;
+            string[] lines = data.Substring(0, data.Length).Split('\n');
+
+            Debug.Log(data);
+        }
+
+
         /// <summary>
         /// Reads the spread sheet and callback with the results
         /// </summary>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "10818963966",
+    "project_id": "hongikchallenge",
+    "storage_bucket": "hongikchallenge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10818963966:android:7bb85eb39400ef39ebd8af",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.HongikChallenge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsPH2sphrjk89-oAPGiGYlwaXOsh-tgG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
