@@ -27,13 +27,13 @@ namespace Client
 
         Define.Field _myField = Define.Field.Start;
         /// <summary> 플레이어의 위치 "방" 해당 방이 아니면 상호작용 불가 </summary>
-        public Define.Field MyField { get { return _myField; } set { _myField = value; MyPlayer.SetField(_myField); } }
+        public Define.Field MyField { get { return _myField; } set { _myField = value; } }
 
         Vector3[] _startPoint = new Vector3[(int)Define.Field.MaxCount];
         /// <summary> 플레이어 전송 위치 </summary>
         public Vector3[] RoomPoint { get { return _startPoint; } private set { _startPoint = value; } }
 
-        bool[] _visitRoom = new bool[(int)Define.Field.MaxCount] { true, false, false, false, false, false, false, false, false, false, false};
+        bool[] _visitRoom = new bool[(int)Define.Field.MaxCount];
         public bool[] VisitRoom { get { return _visitRoom;  } set { _visitRoom = value; } } 
 
 

@@ -8,7 +8,9 @@ public class DoorPhysicsController : MonoBehaviour
 
     private void Start()
     {
-        doorController = transform.parent.GetComponent<DoorController>();
+        doorController = transform.parent.parent.parent.GetComponent<DoorController>();
+        doorController.SetDoorPhysics(this.gameObject);
+
     }
     private void OnMouseDown()
     {

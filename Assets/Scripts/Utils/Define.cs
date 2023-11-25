@@ -16,6 +16,13 @@ public class Define
         Walk,
         MaxCount
     }
+
+
+    public enum Videos
+    {
+        TmpTest,
+        MaxCount
+    }
     public enum BGM
     {
 
@@ -59,16 +66,16 @@ public class Define
         Start,
 
         Lobby,
-        Room1,
-        Room2,
-        Room3,
-        Room4,
 
-        Path1,
-        Path2,
-        Path3,
-        Path4,
-        Path5,
+        RoomS1,
+        RoomS2,
+        RoomM,
+        RoomY,
+
+        Path_L2Start,
+        Path_L2M,
+        Path_L2S1,
+        Path_L2Y,
 
         MaxCount
 
@@ -86,17 +93,24 @@ public class Define
         PamphletText,
         Ball,
         Box,
-        tmp0,
-        tmp1,
-        tmp2,
-        tmp3,
-        tmp4,
-        tmp5,
-        tmp6,
-        tmp7,
-        tmp8,
-        tmp9,
-        tmp10,
+        Curating,
+        CuratingS,
+        CuratingY,
+        CuratingM,
+        book1,
+        book2,
+        book3,
+        book4,
+        book5,
+        book6,
+        book7,
+        bear1,
+        bear2,
+        bear3,
+        bear4,
+
+
+       
 
         MaxCount,
     }

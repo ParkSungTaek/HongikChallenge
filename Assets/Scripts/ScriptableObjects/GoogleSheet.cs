@@ -18,7 +18,6 @@ public class GoogleSheet : ScriptableObject
 
     enum StoryCell
     {
-        
         IDX,
         Obj,
         Scenario,
@@ -46,65 +45,80 @@ public class GoogleSheet : ScriptableObject
 
         if (tmp[(int)StoryCell.Obj] != "")
         {
-            StoryWrapper answer = GameManager.InGameData.StoryWrapper;
-
-            Define.StoryInteractOBJs _type = Define.StoryInteractOBJs.Ball;
-            Story tmpStory = new Story();
-
-            
-            if(!Enum.TryParse(tmp[(int)StoryCell.Obj], out _type))
+            try
             {
-                Debug.LogError($"Story Obj Parse 실패 {tmp[(int)StoryCell.Obj]} 처리 잘 되어있는지 확인 바람");
-                return;
-            }
-            int Scenario = 0;
-            if (!int.TryParse(tmp[(int)StoryCell.Scenario],out Scenario))
-            {
-                Debug.LogError($"Story Scenario Parse 실패 {tmp[(int)StoryCell.Scenario]} 처리 잘 되어있는지 확인 바람");
-            }
+                StoryWrapper answer = GameManager.InGameData.StoryWrapper;
+
+                Define.StoryInteractOBJs _type = Define.StoryInteractOBJs.Ball;
+                Story tmpStory = new Story();
 
 
-            tmpStory.Script = tmp[(int)StoryCell.Script];
-            
-            if(tmp[(int)StoryCell.To] != "" && tmp[(int)StoryCell.To][0] != 13)
-            {
-                if (!int.TryParse(tmp[(int)StoryCell.To], out tmpStory.To))
+                if (!Enum.TryParse(tmp[(int)StoryCell.Obj], out _type))
                 {
-                    Debug.Log($"문제가 있는 To --{tmp[(int)StoryCell.To]}--");
-                    Debug.Log($"아스키코드 까보자 ㅅㅂ --{ (int)tmp[(int)StoryCell.To][0]}--");
+                    Debug.LogError($"Story Obj Parse 실패 {tmp[(int)StoryCell.Obj]} 처리 잘 되어있는지 확인 바람");
+                    return;
+                }
+                int Scenario = 0;
+                if (!int.TryParse(tmp[(int)StoryCell.Scenario], out Scenario))
+                {
+                    Debug.LogError($"Story Scenario Parse 실패 {tmp[(int)StoryCell.Scenario]} 처리 잘 되어있는지 확인 바람");
+                }
+
+                tmpStory.Script = tmp[(int)StoryCell.Script];
 
 
-                    //if(tmp[(int)StoryCell.To] == null)
-                    //{
-                    //    Debug.Log();
-                    //}
-                    //if (tmp[(int)StoryCell.To] == "")
-                    //{
-                    //    Debug.Log("나는 공백");
-                    //}
+                
+                if (tmp.Length > (int)StoryCell.Action)
+                {
+
+                    Define.ActionData actionData;
+                    if (Enum.TryParse(tmp[(int)StoryCell.Action], out actionData))
+                    {
+                        tmpStory.Action = actionData;
+                    }
+                    else
+                    {
+                        tmpStory.Action = Define.ActionData.None;
+                    }
+
+                    if (tmp[(int)StoryCell.To] != "" && tmp[(int)StoryCell.To][0] != 13)
+                    {
+                        if (!int.TryParse(tmp[(int)StoryCell.To], out tmpStory.To))
+                        {
+                            Debug.LogError($"문제가 있는 To --{tmp[(int)StoryCell.To]}--");
+
+                        }
+                    }
+
+                    
+                }
+                else
+                {
+                    tmpStory.Action = Define.ActionData.None;
+
+                }
+
+                if (!answer[_type].ContainsKey(Scenario))
+                {
+                    answer[_type][Scenario] = new List<Story>();
+                }
+
+                answer[_type][Scenario].Add(tmpStory);
+#if UNITY_EDITOR
+                Debug.Log("잘 드감");
+#endif
+
+            }
+            catch
+            {
+                Debug.LogError($"문제 있는 OBJ {tmp[(int)StoryCell.Obj]}");
+
+                if (tmp[(int)StoryCell.To] == null)
+                {
+                    Debug.LogError($"tmp[(int)StoryCell.To] == null");
 
                 }
             }
-            Define.ActionData actionData;
-            if (Enum.TryParse(tmp[(int)StoryCell.Action], out actionData))
-            {
-                tmpStory.Action = actionData;
-            }
-            else
-            {
-                tmpStory.Action = Define.ActionData.None;
-            }
-
-            if (!answer[_type].ContainsKey(Scenario))
-            {
-                answer[_type][Scenario] = new List<Story>();
-            }
-            answer[_type][Scenario].Add(tmpStory);
-#if UNITY_EDITOR
-            //Debug.Log($"Scenario {Scenario}, Script {tmpStory.Script}, Action {tmpStory.Action}, To {tmpStory.To}");
-            Debug.Log("잘 드감");
-#endif
-
         }
 
 

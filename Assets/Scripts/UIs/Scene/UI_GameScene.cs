@@ -16,7 +16,9 @@ public class UI_GameScene : UI_Scene
     }
     enum Buttons
     {
-        JumpBtn
+        JumpBtn,
+        Reset,
+        
     }
     enum Texts
     {
@@ -104,12 +106,17 @@ public class UI_GameScene : UI_Scene
     void ButtonBind()
     {
         BindEvent(GetButton((int)Buttons.JumpBtn).gameObject, Btn_Jump);
+        BindEvent(GetButton((int)Buttons.Reset).gameObject, Btn_Reset);
+
     }
     void Btn_Jump(PointerEventData evt)
     {
         _player?.Jump();
     }
-
+    void Btn_Reset(PointerEventData evt)
+    {
+        GameManager.InGameData.MyPlayer.transform.position = new Vector3(4.30000019f, 1.39999998f, 15.3000002f);
+    }
 
     #endregion Buttons
 

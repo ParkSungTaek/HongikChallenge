@@ -10,7 +10,7 @@ public class DoorController : MonoBehaviour
     GameObject _doorPhysics;
     DoorActiveBound _myBound;
     TextMeshPro _textMeshPro;
-    Vector3 _moveDelta = new Vector3(2,0,0);
+    Vector3 _moveDelta = new Vector3(0,0,-80);
     const float _openDoorTime = 2.0f;
     const float _tick = 1f / 60f;
 
@@ -25,17 +25,20 @@ public class DoorController : MonoBehaviour
     }
     public void ExitBound()
     {
-        _textMeshPro.text = "¹®!";
+        //_textMeshPro.text = "¹®!";
 
     }
     void Start()
     {
-        _doorPhysics = transform.Find("DoorPhysics").gameObject;
         _myBound = transform.Find("DoorActiveBound").GetComponent<DoorActiveBound>();
         _textMeshPro = transform.Find("TextGuide").GetComponent<TextMeshPro>();
         _myBound.SetDoor(this);
     }
 
+    public void SetDoorPhysics(GameObject go)
+    {
+        _doorPhysics = go;
+    }
 
     public void OpenOrClose()
     {
@@ -44,10 +47,13 @@ public class DoorController : MonoBehaviour
             if (_isOpen)
             {
                 StartCoroutine(CloseDoor());
+                Debug.Log("OpenCo");
             }
             else
             {
                 StartCoroutine(OpenDoor());
+                Debug.Log("CloseCo");
+
             }
         }
     }
@@ -61,19 +67,18 @@ public class DoorController : MonoBehaviour
             _canMove = false;
             _isOpen = true;
             
-            Vector3 StartVec = _doorPhysics.transform.position;
-            Vector3 TargetVec = _doorPhysics.transform.position + _moveDelta;
+            Vector3 StartVec = _doorPhysics.transform.localRotation.eulerAngles;
+            Vector3 TargetVec = _doorPhysics.transform.localRotation.eulerAngles + _moveDelta;
 
             float startTime = Time.time;
             float endTime = startTime + _openDoorTime;
             while (Time.time < endTime)
             {
                 float t = (Time.time - startTime) / _openDoorTime;
-                _doorPhysics.transform.position = Vector3.Lerp(StartVec, TargetVec, t);
+                _doorPhysics.transform.localRotation = Quaternion.Euler(Vector3.Lerp(StartVec, TargetVec, t));
                 yield return null;
             }
 
-            _doorPhysics.transform.position = TargetVec;
             _canMove = true;
 
 
@@ -87,18 +92,19 @@ public class DoorController : MonoBehaviour
             _canMove = false;
             _isOpen = false;
 
-            Vector3 StartVec = _doorPhysics.transform.position;
-            Vector3 TargetVec = _doorPhysics.transform.position - _moveDelta;
+
+            Vector3 StartVec = _doorPhysics.transform.localRotation.eulerAngles;
+            Vector3 TargetVec = _doorPhysics.transform.localRotation.eulerAngles - _moveDelta;
+
             float startTime = Time.time;
             float endTime = startTime + _openDoorTime;
             while (Time.time < endTime)
             {
                 float t = (Time.time - startTime) / _openDoorTime;
-                _doorPhysics.transform.position = Vector3.Lerp(StartVec, TargetVec, t);
+                _doorPhysics.transform.localRotation = Quaternion.Euler(Vector3.Lerp(StartVec, TargetVec, t));
                 yield return null;
             }
 
-            _doorPhysics.transform.position = TargetVec;
             _canMove = true;
         }
     }

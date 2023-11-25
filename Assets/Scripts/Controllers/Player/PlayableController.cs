@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Playables;
 using UnityEngine.TextCore.Text;
+using static PlayableController;
 
 public class PlayableController : MonoBehaviour
 {
@@ -14,23 +16,31 @@ public class PlayableController : MonoBehaviour
     /// <summary> 플레이어 Rigidbody </summary>
     Rigidbody _myRd;
 
+
+    public enum WallDetectorEnum
+    {
+        Front,
+        Back,
+        Right,
+        Left,
+        MaxCount
+    }
+    WallDetector[] _wallDetector = new WallDetector[(int)WallDetectorEnum.MaxCount];
+    
+
     float _JumpPower = 6f;
     public bool CanJump { get; set; } = true;
     #endregion Data
 
-    #region 보여주기 위한 영역 나중에 반드시 지울것
-    /// 보여주기 위한 영역 나중에 반드시 지울것
-    public Define.Field Field;
-    public void SetField(Define.Field field)
-    {
-        Field = field;
-    }
-    ///
-    #endregion 보여주기 위한 영역 나중에 반드시 지울것
-
+    
     private void Start()
     {
         _myRd = GetComponent<Rigidbody>();
+        _wallDetector[(int)WallDetectorEnum.Front] = transform.Find("Front").GetComponent<WallDetector>();
+        _wallDetector[(int)WallDetectorEnum.Back] = transform.Find("Back").GetComponent<WallDetector>();
+        _wallDetector[(int)WallDetectorEnum.Left] = transform.Find("Left").GetComponent<WallDetector>();
+        _wallDetector[(int)WallDetectorEnum.Right] = transform.Find("Right").GetComponent<WallDetector>();
+
     }
 
 
@@ -81,9 +91,31 @@ public class PlayableController : MonoBehaviour
     /// <summary> 조이스틱을 이용한 플레이어 직접 조종 </summary>
     public void JoystickMove() {
 
-        _moveDirection = new Vector3(_joystickDirection.x,0, _joystickDirection.y);
-        transform.Translate(_moveDirection * Time.deltaTime * _speed); 
-    } 
+        float x = _joystickDirection.x, y = _joystickDirection.y;
+        if (_wallDetector[(int)WallDetectorEnum.Front].Detecting)
+        {
+            y = Mathf.Min(_joystickDirection.y, 0);
+        }
+        if (_wallDetector[(int)WallDetectorEnum.Back].Detecting)
+        {
+            y = Mathf.Max(_joystickDirection.y, 0);
+        }
+        if (_wallDetector[(int)WallDetectorEnum.Right].Detecting)
+        {
+            x = Mathf.Min(_joystickDirection.x, 0);
+        }
+        if (_wallDetector[(int)WallDetectorEnum.Left].Detecting)
+        {
+            x = Mathf.Max(_joystickDirection.x, 0);
+        }
+        _moveDirection = new Vector3(x, 0, y); 
+
+        transform.Translate(_moveDirection * Time.deltaTime * _speed);
+        
+    }
+
+    
+
     /// <summary> 조이스틱에 따라 방향 결정 </summary>
     public void SetDirection(Vector2 dir)
     {
