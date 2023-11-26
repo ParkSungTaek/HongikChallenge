@@ -5,9 +5,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class UI_Bear : UI_Popup
 {
+    int textIDX = 0;
+    int MaxIIDX = 100;
+    const int Scenario = 0; 
+    List<Story> ScenarioList = new List<Story>();
+    Define.StoryInteractOBJs BearType;
     enum GameObjects
     {
 
@@ -15,6 +21,8 @@ public class UI_Bear : UI_Popup
     enum Buttons
     {
         Button,
+        Right,
+        Left,
     }
     enum Texts
     {
@@ -33,16 +41,32 @@ public class UI_Bear : UI_Popup
 
     public void SetText(Define.StoryInteractOBJs text)
     {
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < GameManager.InGameData.StoryWrapper[text][0].Count; i++)
+        textIDX = 0;
+        BearType = text;
+        MaxIIDX = GameManager.InGameData.StoryWrapper[BearType][Scenario].Count - 1;
+        ScenarioList = GameManager.InGameData.StoryWrapper[BearType][Scenario];
+        GetText((int)Texts.PamphletText).text = ScenarioList[textIDX].Script.Replace("{name}", GameManager.InGameData.Name);
+        LeftRightActiveControl();
+    }
+    void LeftRightActiveControl()
+    {
+        if (textIDX <= 0)
         {
-            sb.Append(GameManager.InGameData.StoryWrapper[text][0][i].Script.Replace("{name}", GameManager.InGameData.Name));
-            sb.Append("\n");
+            GetButton((int)Buttons.Left).gameObject.SetActive(false);
         }
+        else
+        {
+            GetButton((int)Buttons.Left).gameObject.SetActive(true);
 
-        GetText((int)Texts.PamphletText).text = sb.ToString();
+        }
+        if (textIDX >= MaxIIDX)
+        {
+            GetButton((int)Buttons.Right).gameObject.SetActive(false);
+        }
+        else
+        {
+            GetButton((int)Buttons.Right).gameObject.SetActive(true);
+        }
     }
     public void GetError(string er)
     {
@@ -54,25 +78,36 @@ public class UI_Bear : UI_Popup
     void ButtonBind()
     {
         BindEvent(GetButton((int)Buttons.Button).gameObject, DelPopup);
+        BindEvent(GetButton((int)Buttons.Right).gameObject, Btn_Right);
+        BindEvent(GetButton((int)Buttons.Left).gameObject, Btn_Left);
+
+        
+
     }
     void DelPopup(PointerEventData evt)
     {
         GameManager.UI.ClosePopupUI();
     }
-
+    
+    void Btn_Right(PointerEventData evt)
+    {
+        textIDX++;
+        GetText((int)Texts.PamphletText).text = ScenarioList[textIDX].Script.Replace("{name}", GameManager.InGameData.Name);
+        LeftRightActiveControl();
+    }
+    void Btn_Left(PointerEventData evt)
+    {
+        textIDX--;
+        GetText((int)Texts.PamphletText).text = ScenarioList[textIDX].Script.Replace("{name}", GameManager.InGameData.Name);
+        LeftRightActiveControl();
+    }
     #endregion Btn
 
 
     public override void ReOpenPopUpUI()
     {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.PamphletText][0].Count; i++)
-        {
-            sb.Append(GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.PamphletText][0][i].Script.Replace("{name}", GameManager.InGameData.Name));
-            sb.Append("\n");
-        }
-
-        GetText((int)Texts.PamphletText).text = sb.ToString();
+        //textIDX = 0;
+        //GetText((int)Texts.PamphletText).text = ScenarioList[textIDX].Script.Replace("{name}", GameManager.InGameData.Name);
+        //LeftRightActiveControl();
     }
 }

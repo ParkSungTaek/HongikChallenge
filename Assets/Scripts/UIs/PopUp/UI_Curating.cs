@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class UI_Curating : UI_Popup
 {
+
+    const int Scenario = 0;
+    Define.StoryInteractOBJs CuratingType;
     enum GameObjects
     {
 
@@ -35,7 +38,7 @@ public class UI_Curating : UI_Popup
     {
 
         StringBuilder sb = new StringBuilder();
-
+        CuratingType = text;
         for (int i = 0; i < GameManager.InGameData.StoryWrapper[text][0].Count; i++)
         {
             sb.Append(GameManager.InGameData.StoryWrapper[text][0][i].Script.Replace("{name}", GameManager.InGameData.Name));
@@ -65,14 +68,14 @@ public class UI_Curating : UI_Popup
 
     public override void ReOpenPopUpUI()
     {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.PamphletText][0].Count; i++)
-        {
-            sb.Append(GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.PamphletText][0][i].Script.Replace("{name}", GameManager.InGameData.Name));
-            sb.Append("\n");
-        }
-
-        GetText((int)Texts.PamphletText).text = sb.ToString();
+        //StringBuilder sb = new StringBuilder();
+        //
+        //for (int i = 0; i < GameManager.InGameData.StoryWrapper[CuratingType][Scenario].Count; i++)
+        //{
+        //    sb.Append(GameManager.InGameData.StoryWrapper[CuratingType][Scenario][i].Script.Replace("{name}", GameManager.InGameData.Name));
+        //    sb.Append("\n");
+        //}
+        //
+        //GetText((int)Texts.PamphletText).text = sb.ToString();
     }
 }
