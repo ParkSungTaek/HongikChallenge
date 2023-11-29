@@ -10,11 +10,15 @@ public class PlayerFoot : MonoBehaviour
     {
         MyPlayer = transform.parent.GetComponent<PlayableController>();
     }
-
     private void OnTriggerEnter(Collider other)
     {
-
+        Debug.Log("Trigger");
         MyPlayer.CanJump = true;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collisoin");
+
     }
 
 }

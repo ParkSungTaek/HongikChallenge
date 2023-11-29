@@ -12,7 +12,7 @@ public class DoorActiveBound : MonoBehaviour
         _door = door;
     }
 
-
+    
     private void OnTriggerEnter(Collider other)
     {
         _door.CanOpen = true;

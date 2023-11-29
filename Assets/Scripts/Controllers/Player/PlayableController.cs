@@ -29,7 +29,7 @@ public class PlayableController : MonoBehaviour
     
 
     float _JumpPower = 6f;
-    public bool CanJump { get; set; } = true;
+    public bool CanJump  = true;
     #endregion Data
 
     
