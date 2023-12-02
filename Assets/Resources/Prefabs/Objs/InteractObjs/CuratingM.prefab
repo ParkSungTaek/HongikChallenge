@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5466584328840025503}
   - component: {fileID: 239153781348682488}
   - component: {fileID: 5345659790857678979}
-  - component: {fileID: -5310436584217755521}
   - component: {fileID: 3773239523474078924}
+  - component: {fileID: 3385863941328302460}
   m_Layer: 0
   m_Name: CuratingM
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5310436584217755521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2287962250201480701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 838a975ebb9878d438ee6f385ecd7f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractField: 0
-  text: 6
 --- !u!65 &3773239523474078924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,3 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019999998, y: 0.02, z: 0.0002814741}
   m_Center: {x: -2.636797e-13, y: 8.288371e-14, z: 0.000140737}
+--- !u!114 &3385863941328302460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287962250201480701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa81708e088db8347bcb6f960d65c105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractField: 0
+  _Name: 10
+  _info0: 11
+  _info1: 12
+  _Script: 9

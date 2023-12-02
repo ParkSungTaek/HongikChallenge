@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uAC00\uB098\uB2E4\uB77C "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2a56dc9eb72cfc946983f7c94bb81acf, type: 2}
-  m_sharedMaterial: {fileID: -4270118614157795582, guid: 2a56dc9eb72cfc946983f7c94bb81acf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2030cc11793181e41a74bc54c75544f7, type: 2}
+  m_sharedMaterial: {fileID: 2056486689247336145, guid: 2030cc11793181e41a74bc54c75544f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 263.65
+  m_fontSize: 221
   m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1151086247849897010}
   - component: {fileID: 976667885972237149}
   - component: {fileID: 7627489611032778569}
-  - component: {fileID: -5531575517823430551}
   - component: {fileID: 4789433430679803619}
+  - component: {fileID: 9145136578786262748}
   m_Layer: 0
   m_Name: CuratingY
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5531575517823430551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2338642683293832399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 838a975ebb9878d438ee6f385ecd7f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractField: 0
-  text: 5
 --- !u!65 &4789433430679803619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,3 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019999996, y: 0.019999994, z: 0.00021015458}
   m_Center: {x: 6.1444565e-12, y: 1.5625303e-11, z: 0.00010507575}
+--- !u!114 &9145136578786262748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2338642683293832399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa81708e088db8347bcb6f960d65c105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractField: 0
+  _Name: 6
+  _info0: 7
+  _info1: 8
+  _Script: 5

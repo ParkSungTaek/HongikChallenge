@@ -13,6 +13,9 @@ public class PlayerFoot : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger");
+
+        GameManager.Sound.Play(Define.SFX.sfx_jumpLand);
+
         MyPlayer.CanJump = true;
     }
     private void OnCollisionEnter(Collision collision)

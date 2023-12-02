@@ -5,15 +5,16 @@ using static Google.GData.Spreadsheets.ListEntry;
 
 public class StartSequence : MonoBehaviour
 {
-    float MaskSpeed = 15f;
+    
+    float MaskSpeed = 25f;
     GameObject _spriteMask;
     const float _customFrame = 1f / 60f;
 
-    float _fadeOutTime = 3.0f;
+    float _fadeOutTime { get; set; } = 1.0f;
 
     WaitForSecondsRealtime _waitrealtime = new WaitForSecondsRealtime(_customFrame);
     Coroutine _coroutine; 
-    // Start is called before the first frame update
+
     void Start()
     {
         if (GameManager.InGameData.StartSequence)

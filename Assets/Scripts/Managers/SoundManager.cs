@@ -80,15 +80,11 @@ public class SoundManager
     /// </summary>
     /// <param name="type"></param>
     /// <param name="volume"></param>
-    public void WalkPlay()
+    public void WalkPlay(Define.Walk walk)
     {
-
-        AudioSource audioSource = _audioSources[(int)Define.Sounds.Walk];
-        if (audioSource.isPlaying)
-            audioSource.Stop();
-
-        audioSource.clip = GetOrAddAudioClip("TMP_Walk", Define.Sounds.Walk);
-        audioSource.Play();
+        string path = $"{walk}";
+        AudioClip audioClip = GetOrAddAudioClip(path, Define.Sounds.Walk);
+        Play(audioClip, Define.Sounds.Walk);
 
     }
     public void StopWalkPlay()

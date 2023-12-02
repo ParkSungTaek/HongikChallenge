@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Client
@@ -33,14 +34,47 @@ namespace Client
         /// <summary> 플레이어 전송 위치 </summary>
         public Vector3[] RoomPoint { get { return _startPoint; } private set { _startPoint = value; } }
 
+
+
         bool[] _visitRoom = new bool[(int)Define.Field.MaxCount];
+        /// <summary>
+        /// 아웃트로를 위한 
+        /// </summary>
         public bool[] VisitRoom { get { return _visitRoom;  } set { _visitRoom = value; } } 
+
+        public bool End()
+        {
+            bool end = true;
+            for(int i = 0 ; i < (int)Define.Field.MaxCount;i++)
+            {
+                if (!_visitRoom[i])
+                {
+                    end = false; break;
+                }
+            }
+            return end;
+        }
+        public void SetVisit(Define.Field field)
+        {
+            VisitRoom[(int)field] = true;
+            MyPlayer._visitRoom[(int)field] = true;
+
+        }
+        public void ClearVisit()
+        {
+            for (int i = 0; i < (int)Define.Field.MaxCount; i++)
+            {
+                _visitRoom[i] = false;
+            }
+        }
+
 
 
         public void Init()
         {
             MyPlayer = GameObject.FindFirstObjectByType<PlayableController>();
             _startPoint[(int)Define.Field.Lobby] = new Vector3(-2f, 4.0f, 37f);
+            SetVisit(Define.Field.Start);
 
         }
 

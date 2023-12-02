@@ -1,7 +1,9 @@
 using Client;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using static Define;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +21,8 @@ public class GameManager : MonoBehaviour
     InGameDataManager _inGameDataManager = new InGameDataManager();
     UIManager _uiManager = new UIManager();
     NetworkManager _networkManager = new NetworkManager();
-    VideoManager _videoManager = new VideoManager();   
+    VideoManager _videoManager = new VideoManager(); 
+    RoomManager _roomManager = new RoomManager();  
     public static ResourceManager Resource { get { return Instance._resourceManager; } }
     public static SoundManager Sound { get { return Instance._soundManager; } }
     public static InGameDataManager InGameData { get { return Instance._inGameDataManager; } }
@@ -27,11 +30,13 @@ public class GameManager : MonoBehaviour
     
     public static NetworkManager NetworkManager { get {  return Instance._networkManager; } }
     public static VideoManager VideoManager { get { return Instance._videoManager; } }
+    public static RoomManager RoomManager { get { return Instance._roomManager; } }
     #endregion
 
     /// <summary> instance 생성, 산하 매니저들 초기화 </summary>
     static void Init()
     {
+        Debug.Log($"{Define.Walk.sfx_walk1}");
         if (_instance == null)
         {
             GameObject gm = GameObject.Find("GameManager");
@@ -49,6 +54,8 @@ public class GameManager : MonoBehaviour
             _instance._inGameDataManager.Init();
             _instance._networkManager.Init();
             _instance._videoManager.Init();
+            _instance._roomManager.Init();
+
 
             /// 네트워크 통신부
             Instance.StartCoroutine(NetworkManager.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120",NetworkManager.data.GetStoryData));

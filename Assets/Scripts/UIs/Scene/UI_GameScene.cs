@@ -18,6 +18,7 @@ public class UI_GameScene : UI_Scene
     {
         JumpBtn,
         Reset,
+        Room,
         
     }
     enum Texts
@@ -107,6 +108,9 @@ public class UI_GameScene : UI_Scene
     {
         BindEvent(GetButton((int)Buttons.JumpBtn).gameObject, Btn_Jump);
         BindEvent(GetButton((int)Buttons.Reset).gameObject, Btn_Reset);
+        BindEvent(GetButton((int)Buttons.Room).gameObject, Btn_BookRoom);
+
+        
 
     }
     void Btn_Jump(PointerEventData evt)
@@ -115,9 +119,16 @@ public class UI_GameScene : UI_Scene
     }
     void Btn_Reset(PointerEventData evt)
     {
-        GameManager.InGameData.MyPlayer.transform.position = new Vector3(4.30000019f, 1.39999998f, 15.3000002f);
+        GameManager.InGameData.MyPlayer.transform.position = new Vector3(-19.2269211f, 0.640282512f, 21.304493f);
+        
+      
     }
+    void Btn_BookRoom(PointerEventData evt)
+    {
+        GameManager.InGameData.MyPlayer.transform.position =
+        new Vector3(3.54200006f, 0.524675786f, 41.0614433f);
 
+    }
     #endregion Buttons
 
 

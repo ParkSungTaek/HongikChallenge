@@ -13,6 +13,7 @@ public abstract class InteractObj : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
+            
             InteractAction();
         }
     }

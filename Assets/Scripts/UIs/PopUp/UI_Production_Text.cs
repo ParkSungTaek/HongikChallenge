@@ -53,43 +53,28 @@ public class UI_Production_Text : UI_Popup
     }
     IEnumerator TextActionCorutine()
     {
-        StringBuilder stringBuilder = new StringBuilder("ㅅ");
+        StringBuilder stringBuilder = new StringBuilder("ㅁ");
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         
         yield return Tick;
         
         stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("시");
+        stringBuilder.Append("모");
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         yield return Tick;
         
-        stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("실");
-        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
-        yield return Tick;
-        
-        stringBuilder.Append("ㅈ");
-        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
-        yield return Tick;
-
-
-        stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("재");
-        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
-        yield return Tick;
-
-
-        stringBuilder.Append("ㅇ");
-        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
-        yield return Tick;
-        
-        stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("으");
+        stringBuilder.Append("ㄷ");
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         yield return Tick;
 
         stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("의");
+        stringBuilder.Append("데");
+        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
+        yield return Tick;
+
+
+        stringBuilder.Remove(stringBuilder.Length - 1, 1);
+        stringBuilder.Append("뎀");
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         yield return Tick;
 
@@ -98,30 +83,43 @@ public class UI_Production_Text : UI_Popup
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         yield return Tick;
 
+        stringBuilder.Append("ㅅ");
+        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
+        yield return Tick;
+        
+        stringBuilder.Remove(stringBuilder.Length - 1, 1);
+        stringBuilder.Append("스");
+        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
+        yield return Tick;
+
+        stringBuilder.Append("ㅍ");
+        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
+        yield return Tick;
+
+
+        stringBuilder.Remove(stringBuilder.Length - 1, 1);
+        stringBuilder.Append("페");
+        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
+        yield return Tick;
+
+
         stringBuilder.Append("ㅇ");
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         yield return Tick;
 
 
         stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("야");
+        stringBuilder.Append("이");
+        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
+        yield return Tick;
+
+        stringBuilder.Append("ㅅ");
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         yield return Tick;
 
 
         stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("양");
-        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
-        yield return Tick;
-
-
-        stringBuilder.Append("ㅌ");
-        GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
-        yield return Tick;
-
-
-        stringBuilder.Remove(stringBuilder.Length - 1, 1);
-        stringBuilder.Append("태");
+        stringBuilder.Append("스");
         GetText((int)Texts.TextProduction).text = stringBuilder.ToString();
         yield return Tick;
 

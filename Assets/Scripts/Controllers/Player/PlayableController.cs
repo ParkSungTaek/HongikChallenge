@@ -11,6 +11,12 @@ public class PlayableController : MonoBehaviour
     #region Data
     /// <summary> 모델 위치를 감안한 보정 위치 </summary>
     protected Vector3 _currPosition { get => transform.position + Vector3.up; }
+
+
+    public bool[] _visitRoom = new bool[(int)Define.Field.MaxCount];
+    
+
+
     /// <summary> 플레이어 스피드 </summary>
     float _speed = 5f;
     /// <summary> 플레이어 Rigidbody </summary>
@@ -132,9 +138,6 @@ public class PlayableController : MonoBehaviour
 
     #endregion Move
 
-    #region Direction
-
-    #endregion Direction
 
     #region Jump
     public void Jump()
@@ -142,6 +145,7 @@ public class PlayableController : MonoBehaviour
         if (CanJump)
         {
             CanJump = false;
+            GameManager.Sound.Play(Define.SFX.sfx_jumpUp);
             _myRd.AddForce(transform.up * _JumpPower, ForceMode.Impulse);
         }
     }
@@ -207,7 +211,19 @@ public class PlayableController : MonoBehaviour
     #region Sound
     private void WalkSound_Start()
     {
-        GameManager.Sound.WalkPlay();
+        switch (GameManager.InGameData.MyField) 
+        {
+            case Define.Field.RoomY:
+                GameManager.Sound.WalkPlay(Define.Walk.sfx_walk2);
+                break;
+            case Define.Field.RoomM:
+                GameManager.Sound.WalkPlay(Define.Walk.sfx_walk3);
+                break;
+            default:
+                GameManager.Sound.WalkPlay(Define.Walk.sfx_walk1);
+                break;
+        }
+
     }
     private void WalkSound_End()
     {

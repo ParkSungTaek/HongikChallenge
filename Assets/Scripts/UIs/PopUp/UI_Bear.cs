@@ -106,8 +106,6 @@ public class UI_Bear : UI_Popup
 
     public override void ReOpenPopUpUI()
     {
-        //textIDX = 0;
-        //GetText((int)Texts.PamphletText).text = ScenarioList[textIDX].Script.Replace("{name}", GameManager.InGameData.Name);
-        //LeftRightActiveControl();
+
     }
 }
