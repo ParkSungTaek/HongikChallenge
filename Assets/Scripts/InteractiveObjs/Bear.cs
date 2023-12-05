@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class Bear : InteractObj
 {
-    SpeechBubble speechBubble;
     [SerializeField]
-    Define.StoryInteractOBJs text;
+    GameObject _bearUI;
    
     protected override void InteractAction()
     {
-        if (speechBubble == null)
-        {
-            speechBubble = transform.Find("SpeechBubble").GetComponent<SpeechBubble>();
-        }
-        if (!speechBubble.gameObject.activeSelf)
-        {
-            speechBubble.OpenSpeechBubble(text);
-            
-        }
+        GameManager.Sound.Play(Define.SFX.sfx_bear);
+        _bearUI.SetActive(true);
     }
 
 }

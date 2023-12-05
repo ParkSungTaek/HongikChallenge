@@ -110,6 +110,15 @@ public class SoundManager
             audioSource.clip = audioClip;
             audioSource.Play();
         }
+        else if(type == Define.Sounds.Walk)
+        {
+            AudioSource audioSource = _audioSources[(int)Define.Sounds.Walk];
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        }
         else
         {
             AudioSource audioSource = _audioSources[(int)Define.Sounds.SFX];

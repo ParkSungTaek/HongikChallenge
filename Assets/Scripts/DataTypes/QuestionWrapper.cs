@@ -6,27 +6,21 @@ using UnityEngine;
 public class Question
 {
     //public string From;
-    public string Q1;
-    public string Q2;
-    public string Q3;
-    public int A1;
-    public int A2;
-    public int A3;
+    public string Q1 = "";
+    public string Q2 = "";
+    public string Q3 = "";
+    public int A1 = 0;
+    public int A2 = 0;
+    public int A3 = 0;
 }
 public class QuestionWrapper 
 {
-    List<Question> questions;
+    List<Question> questions = new List<Question>();
 
-    /// <summary>
-    /// 리스트 초기화
-    /// questions = new List<Question>(size);
-    /// </summary>
-    /// <param name="size"></param>
-    public void Init(int size)
+    public void Add(Question question)
     {
-        questions = new List<Question>(size);
+        questions.Add(question);
     }
-
     public Question this[int idx]
     {
         get => questions[idx];

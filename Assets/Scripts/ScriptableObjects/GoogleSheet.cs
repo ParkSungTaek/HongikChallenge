@@ -104,9 +104,6 @@ public class GoogleSheet : ScriptableObject
                 }
 
                 answer[_type][Scenario].Add(tmpStory);
-#if UNITY_EDITOR
-                Debug.Log("잘 드감");
-#endif
 
             }
             catch
@@ -125,86 +122,36 @@ public class GoogleSheet : ScriptableObject
 
 
     }
-    internal void GetQuestionData(List<GSTU_Cell> list, string QuestionIDX)
+    internal void GetQuestionData(string line)
     {
 
-        QuestionWrapper answer = GameManager.InGameData.QuestionWrapper;
+        string[] tmp = line.Split('\t');
 
-        int _type = 0;
-        Question tmpQuestion = new Question();
-        bool Empty = false;
-        for (int i = 0; i < list.Count; i++)
+        try
         {
-            switch (list[i].columnId)
-            {
-                case "IDX":
-                    {
-                        if (list[i].value == "")
-                        {
-                            Empty = true;
-                            return;
-                        }
-                        _type = int.Parse(list[i].value);
-                        break;
-                    }
-                case "Q1":
-                    {
-                        if (list[i].value != "")
-                        {
-                            tmpQuestion.Q1 = list[i].value;
-                        }
-                        break;
-                    }
-                case "Q2":
-                    {
-                        if (list[i].value != "")
-                            tmpQuestion.Q2 = list[i].value;
-                        break;
+            Question tmpQuestion = new Question();
+            
 
-                    }
+            tmpQuestion.Q1 = tmp[(int)QuestionCell.Q1];
+            tmpQuestion.Q2 = tmp[(int)QuestionCell.Q2];
 
-                case "Q3":
-                    {
-                        if (list[i].value != "")
-                            tmpQuestion.Q3 = list[i].value;
-                        break;
 
-                    }
+            tmpQuestion.A1 = int.Parse(tmp[(int)QuestionCell.A1]);
+            tmpQuestion.A2 = int.Parse(tmp[(int)QuestionCell.A2]);
 
-                case "A1":
-                    {
-                        if (list[i].value != "")
-                            tmpQuestion.A1 = int.Parse(list[i].value);
-                        break;
-                    }
-                case "A2":
-                    {
-                        if (list[i].value != "")
-                            tmpQuestion.A2 = int.Parse(list[i].value);
-                        break;
 
-                    }
+            GameManager.InGameData.QuestionWrapper.Add(tmpQuestion);
 
-                case "A3":
-                    {
-                        if (list[i].value != "")
-                            tmpQuestion.A3 = int.Parse(list[i].value);
-                        break;
 
-                    }
-                default:
-                    {
-                        break;
-                    }
-            }
-        }
-        
-        if (!Empty)
-        {
-            answer[_type] = tmpQuestion;
 #if UNITY_EDITOR
-            Debug.Log($"IDX {_type}, Q1 {tmpQuestion.Q1}, Q2 {tmpQuestion.Q2}, Q3 {tmpQuestion.Q3}, A1 {tmpQuestion.A1}, Q2 {tmpQuestion.A2}, Q3 {tmpQuestion.A3}");
+            Debug.Log("잘 드감");
 #endif
+
         }
+        catch
+        {
+            Debug.Log($"Question {tmp[(int)QuestionCell.IDX]} 에 문제있음 ");
+        }
+
     }
 }

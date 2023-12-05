@@ -15,6 +15,15 @@ public class Info : InteractObj
 
     protected override void InteractAction()
     {
-        GameManager.UI.ShowPopupUI<UI_Info>().SetText(_Name,_info0, _info1,_Script);
+        if(_Script != Define.StoryInteractOBJs.book2)
+        {
+            GameManager.UI.ShowPopupUI<UI_RealBook>().SetText(_Name, _info0, _info1, _Script);
+
+        }
+        else
+        {
+            GameManager.UI.ShowPopupUI<UI_Book2>();
+
+        }
     }
 }

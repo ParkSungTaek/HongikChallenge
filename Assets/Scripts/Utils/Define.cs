@@ -39,6 +39,7 @@ public class Define
 
         Intro,
         Outro,
+        roomM,
         
         TMP_Walk,
         TMP_Door,
@@ -163,12 +164,32 @@ public class Define
         bear2,
         bear3,
         bear4,
+
+        Room013_Explan,
         Room013,
 
-
+        intro,
+        outro,
+        roomM,
 
 
         MaxCount,
+    }
+
+    public enum Earths
+    {
+        defaultVariant,
+        answer1Variant,
+        answer2Variant,
+        answer3Variant,
+        answer4Variant,
+        answer5Variant,
+        answer6Variant,
+        answer7Variant,
+        answer8Variant,
+
+        MaxCount
+
     }
     public enum ActionData
     {

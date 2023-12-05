@@ -42,6 +42,21 @@ namespace Client
         /// </summary>
         public bool[] VisitRoom { get { return _visitRoom;  } set { _visitRoom = value; } } 
 
+
+        public int ScenarioForEarth { get; set; }
+        public GameObject[] Earths { get; set; } = new GameObject[(int)Define.Earths.MaxCount];
+
+        public Define.StoryInteractOBJs Narration { get; set; } = Define.StoryInteractOBJs.intro;
+
+        public void ShowEarth(Define.Earths earth)
+        {
+            for(int i=0;i< (int)Define.Earths.MaxCount; i++)
+            {
+                Earths[i].SetActive(false);
+            }
+            Earths[(int)earth].SetActive(true);
+        }
+
         public bool End()
         {
             bool end = true;

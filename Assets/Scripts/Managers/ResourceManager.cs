@@ -24,6 +24,11 @@ public class ResourceManager
 
         //캐시에 없음 -> 로드하여 캐시에 저장 후 반환
         obj = Resources.Load<T>(path);
+#if UNITY_EDITOR
+        if (obj == null)
+            Debug.LogError($"NULL {path}확인 바람 ");
+#endif
+
         if (caching)
         {
             _cache.Add(path, obj);

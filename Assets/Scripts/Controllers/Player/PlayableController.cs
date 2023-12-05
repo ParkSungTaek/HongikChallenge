@@ -32,8 +32,8 @@ public class PlayableController : MonoBehaviour
         MaxCount
     }
     WallDetector[] _wallDetector = new WallDetector[(int)WallDetectorEnum.MaxCount];
-    
 
+    [SerializeField]
     float _JumpPower = 6f;
     public bool CanJump  = true;
     #endregion Data

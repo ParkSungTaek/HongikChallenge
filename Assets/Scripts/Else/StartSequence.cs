@@ -6,7 +6,7 @@ using static Google.GData.Spreadsheets.ListEntry;
 public class StartSequence : MonoBehaviour
 {
     
-    float MaskSpeed = 25f;
+    float MaskSpeed = 0.2f;
     GameObject _spriteMask;
     const float _customFrame = 1f / 60f;
 

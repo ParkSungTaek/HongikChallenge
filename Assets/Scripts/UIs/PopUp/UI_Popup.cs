@@ -13,7 +13,6 @@ public abstract class UI_Popup : UI_Base
     {
         if (this is UI_Production_Text)
         {
-            GameManager.Sound.Play(Define.SFX.Intro);
         }
         else
         {

@@ -19,7 +19,7 @@ public class UI_GameScene : UI_Scene
         JumpBtn,
         Reset,
         Room,
-        
+        Earth,
     }
     enum Texts
     {
@@ -98,7 +98,7 @@ public class UI_GameScene : UI_Scene
     {
         _directionVector = Vector2.zero;
         _joystickHandle.transform.position = _joystickPivotPos;
-
+        GameManager.Sound.StopWalkPlay();
         _player?.StopMove();
     }
     #endregion Joystick
@@ -109,8 +109,10 @@ public class UI_GameScene : UI_Scene
         BindEvent(GetButton((int)Buttons.JumpBtn).gameObject, Btn_Jump);
         BindEvent(GetButton((int)Buttons.Reset).gameObject, Btn_Reset);
         BindEvent(GetButton((int)Buttons.Room).gameObject, Btn_BookRoom);
+        BindEvent(GetButton((int)Buttons.Earth).gameObject, Btn_Earth);
 
-        
+
+
 
     }
     void Btn_Jump(PointerEventData evt)
@@ -127,6 +129,12 @@ public class UI_GameScene : UI_Scene
     {
         GameManager.InGameData.MyPlayer.transform.position =
         new Vector3(3.54200006f, 0.524675786f, 41.0614433f);
+
+    }
+    void Btn_Earth(PointerEventData evt)
+    {
+        GameManager.InGameData.MyPlayer.transform.position =
+        new Vector3(28.6423779f, 0.640137792f, 23.273756f);
 
     }
     #endregion Buttons

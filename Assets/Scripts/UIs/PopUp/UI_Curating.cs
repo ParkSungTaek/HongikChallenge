@@ -11,6 +11,8 @@ public class UI_Curating : UI_Popup
 
     const int Scenario = 0;
     Define.StoryInteractOBJs CuratingType;
+    ScrollRect scrollRect;
+
     enum GameObjects
     {
 
@@ -29,6 +31,7 @@ public class UI_Curating : UI_Popup
         Bind<GameObject>(typeof(GameObjects));
         Bind<Button>(typeof(Buttons));
         Bind<TMP_Text>(typeof(Texts));
+        scrollRect = transform.Find("Scroll View").GetComponent<ScrollRect>();
 
         ButtonBind();
 
@@ -68,14 +71,7 @@ public class UI_Curating : UI_Popup
 
     public override void ReOpenPopUpUI()
     {
-        //StringBuilder sb = new StringBuilder();
-        //
-        //for (int i = 0; i < GameManager.InGameData.StoryWrapper[CuratingType][Scenario].Count; i++)
-        //{
-        //    sb.Append(GameManager.InGameData.StoryWrapper[CuratingType][Scenario][i].Script.Replace("{name}", GameManager.InGameData.Name));
-        //    sb.Append("\n");
-        //}
-        //
-        //GetText((int)Texts.PamphletText).text = sb.ToString();
+        scrollRect.verticalNormalizedPosition = 1.0f;
+
     }
 }

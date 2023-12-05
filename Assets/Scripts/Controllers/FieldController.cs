@@ -5,7 +5,7 @@ using UnityEngine;
 public class FieldController : MonoBehaviour
 {
     public Define.Field ThisField;
-
+    bool roomM = false;
     private void OnTriggerEnter(Collider other)
     {
         GameManager.InGameData.MyField = ThisField;
@@ -17,6 +17,16 @@ public class FieldController : MonoBehaviour
             GameManager.Sound.Play(Define.SFX.Outro);
             GameManager.UI.ShowPopupUI<UI_Outro>();
         }
+
+        if (ThisField == Define.Field.RoomM)
+        {
+            if (!roomM)
+            {
+                GameManager.Sound.Play(Define.SFX.roomM);
+                roomM = true;
+            }
+        }
+
 
     }
 

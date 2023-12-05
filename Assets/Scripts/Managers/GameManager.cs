@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     /// <summary> instance 생성, 산하 매니저들 초기화 </summary>
     static void Init()
     {
-        Debug.Log($"{Define.Walk.sfx_walk1}");
         if (_instance == null)
         {
             GameObject gm = GameObject.Find("GameManager");
@@ -59,6 +58,8 @@ public class GameManager : MonoBehaviour
 
             /// 네트워크 통신부
             Instance.StartCoroutine(NetworkManager.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120",NetworkManager.data.GetStoryData));
+            Instance.StartCoroutine(NetworkManager.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120", NetworkManager.data.GetQuestionData , "924231598"));
+
         }
 
     }

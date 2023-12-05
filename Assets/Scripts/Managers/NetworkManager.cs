@@ -36,11 +36,8 @@ public class NetworkManager
         sb.Append("https://docs.google.com/spreadsheets/d/");
         sb.Append(GoogleSheetsID);
         sb.Append("/export?format=tsv");
-        sb.Append("&gid="+data.associatedStoryWorksheet);
+        sb.Append("&gid="+WorkSheetsID);
         sb.Append("&range=" + startCell + ":" + endCell);
-
-        Debug.Log(sb.ToString());
-
 
         using (UnityWebRequest webData = UnityWebRequest.Get(sb.ToString()))
         {

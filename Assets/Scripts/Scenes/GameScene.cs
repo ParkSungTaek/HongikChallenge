@@ -3,21 +3,17 @@ using UnityEngine;
 
 public class GameScene : MonoBehaviour
 {
-    
-    public static void Init()
-    {
-        Time.timeScale = 1.0f;
-        GameManager.UI.ShowPopupUI<UI_Production_Text>();
-        GameManager.UI.ShowSceneUI<UI_GameScene>();
-
-        
-    }
-
-
     private void Start()
     {
-        //StartCoroutine(timedelay());
-        //GameManager.NetworkManager.Run();
+        GameManager.UI.ShowPopupUI<UI_Production_Text>();
+
     }
+    public static void Init()
+    {
+        GameManager.UI.ShowSceneUI<UI_GameScene>();
+
+    }
+
+
 
 }
