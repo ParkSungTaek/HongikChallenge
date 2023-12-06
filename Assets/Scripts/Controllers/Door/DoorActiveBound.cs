@@ -17,14 +17,11 @@ public class DoorActiveBound : MonoBehaviour
     {
         _door.CanOpen = true;
         _door.EnterBound();
-        Debug.Log("DoorOpen");
     }
     private void OnTriggerExit(Collider other)
     {
         _door.CanOpen = false;
         _door.ExitBound();
-
-        Debug.Log("DoorClose");
 
     }
 

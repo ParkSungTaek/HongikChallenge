@@ -1024,8 +1024,8 @@ MonoBehaviour:
     \uB178\uB3D9 \uC804 \uACFC\uC815\uC5D0\uC11C \uC77C\uC5B4\uB098\uB294 \uC2DC\uAC74\uC758
     \uC6C0\uC9C1\uC784\uC744 \uAE30\uB85D\uD558\uACE0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2f888ec03df6a5949bb84affd3b90bf3, type: 2}
-  m_sharedMaterial: {fileID: -586071491937272749, guid: 2f888ec03df6a5949bb84affd3b90bf3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e95daa1d00fef2f489ff6533585ea989, type: 2}
+  m_sharedMaterial: {fileID: 8856350493571079714, guid: e95daa1d00fef2f489ff6533585ea989, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

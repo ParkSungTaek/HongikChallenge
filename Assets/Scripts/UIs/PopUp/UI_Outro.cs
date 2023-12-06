@@ -33,6 +33,9 @@ public class UI_Outro : UI_Popup
     void DelPopup(PointerEventData evt)
     {
         GameManager.UI.ClosePopupUI();
+        SceneManager.LoadScene(Define.Scenes.GameScene);
+
+
     }
 
     #endregion Btn

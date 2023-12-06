@@ -23,14 +23,16 @@ public class GameManager : MonoBehaviour
     NetworkManager _networkManager = new NetworkManager();
     VideoManager _videoManager = new VideoManager(); 
     RoomManager _roomManager = new RoomManager();  
+
     public static ResourceManager Resource { get { return Instance._resourceManager; } }
     public static SoundManager Sound { get { return Instance._soundManager; } }
     public static InGameDataManager InGameData { get { return Instance._inGameDataManager; } }
     public static UIManager UI { get { return Instance._uiManager; } }
     
-    public static NetworkManager NetworkManager { get {  return Instance._networkManager; } }
-    public static VideoManager VideoManager { get { return Instance._videoManager; } }
-    public static RoomManager RoomManager { get { return Instance._roomManager; } }
+    public static NetworkManager Network { get {  return Instance._networkManager; } }
+    public static VideoManager Video { get { return Instance._videoManager; } }
+    public static RoomManager Room { get { return Instance._roomManager; } }
+
     #endregion
 
     /// <summary> instance 생성, 산하 매니저들 초기화 </summary>
@@ -57,8 +59,8 @@ public class GameManager : MonoBehaviour
 
 
             /// 네트워크 통신부
-            Instance.StartCoroutine(NetworkManager.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120",NetworkManager.data.GetStoryData));
-            Instance.StartCoroutine(NetworkManager.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120", NetworkManager.data.GetQuestionData , "924231598"));
+            Instance.StartCoroutine(Network.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120",Network.data.GetStoryData));
+            Instance.StartCoroutine(Network.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120", Network.data.GetQuestionData , "924231598"));
 
         }
 

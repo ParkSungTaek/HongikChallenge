@@ -8,12 +8,7 @@ public class GameScene : MonoBehaviour
         GameManager.UI.ShowPopupUI<UI_Production_Text>();
 
     }
-    public static void Init()
-    {
-        GameManager.UI.ShowSceneUI<UI_GameScene>();
-
-    }
-
+ 
 
 
 }

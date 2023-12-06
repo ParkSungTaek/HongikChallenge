@@ -11,9 +11,7 @@ public abstract class UI_Popup : UI_Base
     }
     private void OnEnable()
     {
-        if (this is UI_Production_Text)
-        {
-        }
+        if (this is UI_Production_Text || this is Narration || this is RoomMCanvas) { }
         else
         {
             GameManager.Sound.Play(Define.SFX.sfx_touchPaper);
@@ -22,7 +20,7 @@ public abstract class UI_Popup : UI_Base
     /// <summary> pop up 닫기 </summary>
     public virtual void ClosePopUpUI()
     {
-        if (!(this is UI_Production_Text))
+        if (!(this is UI_Production_Text || this is Narration || this is RoomMCanvas))
         {
             GameManager.Sound.Play(Define.SFX.sfx_touchPaper);
         }

@@ -43,6 +43,35 @@ public class Define
         
         TMP_Walk,
         TMP_Door,
+
+        Intro1,
+        Intro2,
+        Intro3,
+        Intro4,
+        Intro5,
+        Intro6,
+        Intro7,
+        Intro8,
+        Intro9,
+        Intro10,
+        Intro11,
+        Intro12,
+        Intro13,
+
+        Outro1, 
+        Outro2,
+        Outro3,
+        Outro4, 
+        Outro5,
+        Outro6,
+
+        roomM1,
+        roomM2,
+        roomM3,
+        roomM4,
+        roomM5,
+
+
         MaxCount
     }
     public enum Walk
@@ -74,9 +103,7 @@ public class Define
 
     public enum Scenes
     {
-        Title,
-        Loby,
-        Game,
+        GameScene,
     }
 
     public enum Field

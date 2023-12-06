@@ -157,13 +157,15 @@ public class UI_Production_Text : UI_Popup
         yield return new WaitForSeconds (_endTime - (14 * _tickTime)) ;
 
 
-        GameManager.Sound.Play(Define.SFX.Intro);
+        //GameManager.Sound.Play(Define.SFX.Intro);
 
-        GameManager.UI.ShowSceneUI<UI_GameScene>();
 
         GameManager.UI.ClosePopupUI(this);
 
 
+        GameManager.UI.ShowSceneUI<UI_GameScene>();
+        GameManager.InGameData.narration = GameManager.UI.ShowSceneUI<Narration>();
+        GameManager.InGameData.narration.PlayIntro();
 
     }
 

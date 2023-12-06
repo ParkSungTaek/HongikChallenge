@@ -21,8 +21,23 @@ namespace Client
 
 
         public string Name { get; set; } = "";
+        PlayableController myPlayer;
+
         /// <summary> 현재 플레이어 </summary>
-        public PlayableController MyPlayer { get; private set; }
+        public PlayableController MyPlayer { 
+            get 
+            {
+                if (myPlayer == null) 
+                {
+                    myPlayer = GameObject.FindFirstObjectByType<PlayableController>();
+                }
+                return myPlayer; 
+            } 
+            private set 
+            { 
+                myPlayer = value; 
+            } 
+        }
         /// <summary> 이미 스타트 시퀀스("실제의 양태")봐야 하나? </summary>
         public bool StartSequence { get; set; } = true;
 
@@ -47,6 +62,7 @@ namespace Client
         public GameObject[] Earths { get; set; } = new GameObject[(int)Define.Earths.MaxCount];
 
         public Define.StoryInteractOBJs Narration { get; set; } = Define.StoryInteractOBJs.intro;
+        public Narration narration { get; set; }
 
         public void ShowEarth(Define.Earths earth)
         {
@@ -96,7 +112,8 @@ namespace Client
         /// <summary> 게임 플레이 정보 초기화 </summary>
         public void Clear()
         {
-            
+            ClearVisit();
+            SetVisit(Define.Field.Start);
         }
     }
 
