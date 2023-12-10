@@ -8,7 +8,6 @@ using GoogleSheetsToUnity.ThirdPary;
 using UnityEngine.Networking;
 using System.Text;
 
-//https://console.developers.google.com/
 
 public class NetworkManager
 {
@@ -21,13 +20,13 @@ public class NetworkManager
     }
 
     /// <summary>
-    /// ±¸±Û ½ºÇÁ·¹µå ½ÃÆ® ¸¦ ¹Ş¾Æ¿Í °¡°øÇÏ´Â ÇÔ¼ö
+    /// êµ¬ê¸€ ìŠ¤í”„ë ˆë“œ ì‹œíŠ¸ ë¥¼ ë°›ì•„ì™€ ê°€ê³µí•˜ëŠ” í•¨ìˆ˜
     /// </summary>
-    /// <param name="GoogleSheetsID"> ±¸±Û ½ºÇÁ·¹µå ½ÃÆ®ÀÇ ID</param>
-    /// <param name="ManufactureData"> ½ºÇÁ·¹µå ½ÃÆ® °¡°ø ÇÔ¼ö inputÀº ÇÑ ÁÙ À» ¹Ş¾Æ¾ßÇÔ, CellÀº ÅÇ('\t')À¸·Î ±¸ºĞ</param>
-    /// <param name="WorkSheetsID"> ½ÃÆ®ÀÇ WorkSheet ±¸ºĞ default ´Â 0 Ã¹ Àå</param>
-    /// <param name="startCell"> ½ÃÀÛ ¼¿ default A1</param>
-    /// <param name="endCell"> ³¡ ¼¿ default E </param>
+    /// <param name="GoogleSheetsID"> êµ¬ê¸€ ìŠ¤í”„ë ˆë“œ ì‹œíŠ¸ì˜ ID</param>
+    /// <param name="ManufactureData"> ìŠ¤í”„ë ˆë“œ ì‹œíŠ¸ ê°€ê³µ í•¨ìˆ˜ inputì€ í•œ ì¤„ ì„ ë°›ì•„ì•¼í•¨, Cellì€ íƒ­('\t')ìœ¼ë¡œ êµ¬ë¶„</param>
+    /// <param name="WorkSheetsID"> ì‹œíŠ¸ì˜ WorkSheet êµ¬ë¶„ default ëŠ” 0 ì²« ì¥</param>
+    /// <param name="startCell"> ì‹œì‘ ì…€ default A1</param>
+    /// <param name="endCell"> ë ì…€ default E </param>
     /// <returns></returns>
     public IEnumerator RequestAndSetItemDatas(string GoogleSheetsID, Action<string> ManufactureData, string WorkSheetsID = "0", string endCell = "Z", string startCell = "A2")
     {
