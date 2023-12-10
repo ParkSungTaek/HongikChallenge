@@ -63,6 +63,12 @@ public class UI_Curating : UI_Popup
     }
     void DelPopup(PointerEventData evt)
     {
+        if (!GameManager.InGameData.CuratingEndNarration)
+        {
+            GameManager.InGameData.CuratingEndNarration = true;
+            GameManager.InGameData.narration.PlayIntro4();
+
+        }
         GameManager.UI.ClosePopupUI();
     }
 

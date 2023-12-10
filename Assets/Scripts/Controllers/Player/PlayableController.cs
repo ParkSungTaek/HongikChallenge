@@ -18,7 +18,8 @@ public class PlayableController : MonoBehaviour
 
 
     /// <summary> 플레이어 스피드 </summary>
-    float _speed = 5f;
+    
+    float _speed = 2f;
     /// <summary> 플레이어 Rigidbody </summary>
     Rigidbody _myRd;
 
@@ -33,8 +34,7 @@ public class PlayableController : MonoBehaviour
     }
     WallDetector[] _wallDetector = new WallDetector[(int)WallDetectorEnum.MaxCount];
 
-    [SerializeField]
-    float _JumpPower = 6f;
+    float _JumpPower = 3f;
     public bool CanJump  = true;
     #endregion Data
 

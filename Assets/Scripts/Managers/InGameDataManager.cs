@@ -56,13 +56,27 @@ namespace Client
         /// 아웃트로를 위한 
         /// </summary>
         public bool[] VisitRoom { get { return _visitRoom;  } set { _visitRoom = value; } } 
-
-
         public int ScenarioForEarth { get; set; }
         public GameObject[] Earths { get; set; } = new GameObject[(int)Define.Earths.MaxCount];
-
         public Define.StoryInteractOBJs Narration { get; set; } = Define.StoryInteractOBJs.intro;
         public Narration narration { get; set; }
+
+        public VideoController MyVideoController { get; set; }
+
+        #region door
+        public bool CanOpenDoor { get; set; } = false;
+
+        public DoorController EndDoor { get; set; }
+        #endregion
+
+
+        #region Narration
+        public bool IntroPlay { get; set; } = false;
+        public bool CuratingEndNarration{ get; set; } = false;
+
+        public bool Ending1 { get; set; } = false;
+        public bool Ending2 { get; set; } = false;
+        #endregion
 
         public void ShowEarth(Define.Earths earth)
         {
@@ -84,6 +98,15 @@ namespace Client
                 }
             }
             return end;
+        }
+
+        public bool CantOpen() 
+        {
+            if (End() && (MyField == Define.Field.Lobby|| MyField == Define.Field.Start))
+            {
+                return true;
+            }
+            return false;
         }
         public void SetVisit(Define.Field field)
         {
@@ -113,6 +136,7 @@ namespace Client
         public void Clear()
         {
             ClearVisit();
+            CanOpenDoor = false;
             SetVisit(Define.Field.Start);
         }
     }

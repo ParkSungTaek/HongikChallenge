@@ -165,7 +165,7 @@ public class UI_Production_Text : UI_Popup
 
         GameManager.UI.ShowSceneUI<UI_GameScene>();
         GameManager.InGameData.narration = GameManager.UI.ShowSceneUI<Narration>();
-        GameManager.InGameData.narration.PlayIntro();
+        GameManager.InGameData.narration.PlayIntro1();
 
     }
 

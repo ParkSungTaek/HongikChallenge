@@ -154,16 +154,15 @@ public class RoomMCanvas : UI_Popup
     #endregion Btn
     void SetText()
     {
-        Debug.Log($"RoomMData[Scenario][0].To {RoomMData[Scenario][0].To}");
         
         GetText((int)Texts.RoomMTexts).text = RoomMData[Scenario][0].Script;
         string tmp = GameManager.InGameData.QuestionWrapper[RoomMData[Scenario][0].To].Q1.Replace("/n", "\n");
         Debug.Log(tmp); 
         GetText((int)Texts.Q1_Txt).text = tmp;
         GetText((int)Texts.Q2_Txt).text = GameManager.InGameData.QuestionWrapper[RoomMData[Scenario][0].To].Q2.Replace("[/n]", "\n");
-    
+
     }
-    
+
 
 
     public override void ReOpenPopUpUI()

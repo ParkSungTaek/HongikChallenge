@@ -13,7 +13,7 @@ public class UI_Info : UI_Popup
     Define.StoryInteractOBJs _info0;
     Define.StoryInteractOBJs _info1;
     Define.StoryInteractOBJs _Script;
-    
+    ScrollRect scrollRect;
     enum GameObjects
     {
 
@@ -35,6 +35,7 @@ public class UI_Info : UI_Popup
         Bind<GameObject>(typeof(GameObjects));
         Bind<Button>(typeof(Buttons));
         Bind<TMP_Text>(typeof(Texts));
+        scrollRect = transform.Find("Scroll View").GetComponent<ScrollRect>();
 
         ButtonBind();
 
@@ -88,5 +89,6 @@ public class UI_Info : UI_Popup
 
     public override void ReOpenPopUpUI()
     {
+        scrollRect.verticalNormalizedPosition = 1.0f;
     }
 }

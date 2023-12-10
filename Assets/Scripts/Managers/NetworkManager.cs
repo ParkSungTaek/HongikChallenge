@@ -1,10 +1,8 @@
 using UnityEngine;
 using System.Collections;
-using GoogleSheetsToUnity;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
-using GoogleSheetsToUnity.ThirdPary;
 using UnityEngine.Networking;
 using System.Text;
 

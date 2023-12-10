@@ -1,4 +1,5 @@
 using Client;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -9,11 +10,18 @@ using UnityEngine.UI;
 
 public class Narration : UI_Scene
 {
-
+    Queue<Action> _jobQueue = new Queue<Action>();
+    
+    bool _isRunning = false;
     enum narration
     {
-        Intro,
-        Outro,
+        Intro1,
+        Intro2,
+        Intro3,
+        Intro4,
+        Intro5,
+        Outro1,
+        Outro2,
         roomM,
         MaxCount,
     }
@@ -59,60 +67,121 @@ public class Narration : UI_Scene
 
     #endregion Btn
 
+    #region NarrationPlayEnd
+    void PlayNarration()
+    {
+        _isRunning = true;
+        Action action = _jobQueue.Dequeue();
+        action.Invoke();
+    }
+    void EndNarration()
+    {
+        _isRunning = false;
+        this.gameObject.SetActive(false);
 
-    public void PlayIntro()
+    }
+
+    void NextStep()
+    {
+        if (_jobQueue.Count == 0)
+        {
+            EndNarration();
+        }
+        else
+        {
+            PlayNarration();
+        }
+    }
+    #endregion
+
+    #region Play
+    public void PlayIntro1()
     {
         this.gameObject.SetActive(true);
-        coroutine[(int)narration.Intro] = StartCoroutine(Intro());
-    }
-    public void EndIntro()
-    {
-        if (coroutine[(int)narration.Intro] != null)
-        {
-            StopCoroutine(coroutine[(int)narration.Intro]);
-        }
         
+        _jobQueue.Enqueue(() => StartCoroutine(Intro1()));
+        if (!_isRunning)
+        {
+            PlayNarration();
+        }
     }
-
-
-    public void PlayOutro()
+    
+    public void PlayIntro2()
     {
         this.gameObject.SetActive(true);
-
-        EndIntro();
-        EndroomM();
-        coroutine[(int)narration.Outro] = StartCoroutine(Outro());
-    }
-    public void EndOutro()
-    {
-
-        if (coroutine[(int)narration.Outro] != null)
+        _jobQueue.Enqueue(() => StartCoroutine(Intro2()));
+        if (!_isRunning)
         {
-            StopCoroutine(coroutine[(int)narration.Outro]);
+            PlayNarration();
         }
+    }
+    
 
+    public void PlayIntro3()
+    {
+        this.gameObject.SetActive(true);
+        _jobQueue.Enqueue(() => StartCoroutine(Intro3()));
+        if (!_isRunning)
+        {
+            PlayNarration();
+        }
+    }
+    public void PlayIntro4()
+    {
+        this.gameObject.SetActive(true);
+        _jobQueue.Enqueue(() => StartCoroutine(Intro4()));
+        if (!_isRunning)
+        {
+            PlayNarration();
+        }
+    }
+    public void PlayIntro5()
+    {
+        this.gameObject.SetActive(true);
+        _jobQueue.Enqueue(() => StartCoroutine(Intro5()));
+        if (!_isRunning)
+        {
+            PlayNarration();
+        }
+    }
+
+
+    public void PlayOutro1()
+    {
+        this.gameObject.SetActive(true);
+        _jobQueue.Enqueue(() => StartCoroutine(Outro1()));
+        GameManager.InGameData.EndDoor.OpenSequence();
+        if (!_isRunning)
+        {
+            PlayNarration();
+        }
+    }
+
+    public void PlayOutro2()
+    {
+        this.gameObject.SetActive(true);
+        _jobQueue.Enqueue(() => StartCoroutine(Outro2()));
+        if (!_isRunning)
+        {
+            PlayNarration();
+        }
     }
 
 
     public void PlayroomM()
     {
         this.gameObject.SetActive(true);
-        EndIntro();
-        coroutine[(int)narration.roomM] = StartCoroutine(roomM());
-    }
-    public void EndroomM()
-    {
-        if (coroutine[(int)narration.roomM] != null)
+        _jobQueue.Enqueue(() => StartCoroutine(roomM()));
+        if (!_isRunning)
         {
-            StopCoroutine(coroutine[(int)narration.roomM]);
+            PlayNarration();
         }
-
     }
-
+    #endregion Play
 
     #region 자막 나레이션 싱크
 
-    IEnumerator Intro()
+    IEnumerator Intro1()
     {
         List<Story> intro = GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.intro][0];
 
@@ -141,18 +210,46 @@ public class Narration : UI_Scene
         GameManager.Sound.Play(Define.SFX.Intro6);
         yield return Seconds[3];
 
+        GameManager.InGameData.CanOpenDoor = true;
+
+        NextStep();
+
+    }
+
+    IEnumerator Intro2()
+    {
+        List<Story> intro = GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.intro][0];
+
         GetText((int)Texts.NarrationTxt).text = intro[6].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.Intro7);
         yield return Seconds[5];
 
+        NextStep();
+    }
+    IEnumerator Intro3()    {
+
+        List<Story> intro = GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.intro][0];
         GetText((int)Texts.NarrationTxt).text = intro[7].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.Intro8);
         yield return Seconds[5];
+
+        NextStep();
+    }
+    IEnumerator Intro4()
+    {
+
+        List<Story> intro = GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.intro][0];
 
         GetText((int)Texts.NarrationTxt).text = intro[8].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.Intro9);
         yield return Seconds[6];
 
+        NextStep();
+    }
+    IEnumerator Intro5()
+    {
+
+        List<Story> intro = GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.intro][0];
         GetText((int)Texts.NarrationTxt).text = intro[9].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.Intro10);
         yield return Seconds[4];
@@ -169,14 +266,14 @@ public class Narration : UI_Scene
         GameManager.Sound.Play(Define.SFX.Intro13);
         yield return Seconds[3];
 
-        this.gameObject.SetActive(false);
+        NextStep();
 
 
     }
-    IEnumerator Outro()
+    IEnumerator Outro1()
     {
         List<Story> outro = GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.outro][0];
-
+        
 
         GetText((int)Texts.NarrationTxt).text = outro[0].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.Outro1);
@@ -189,6 +286,13 @@ public class Narration : UI_Scene
         GetText((int)Texts.NarrationTxt).text = outro[2].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.Outro3);
         yield return Seconds[6];
+
+        NextStep();
+
+    }
+    IEnumerator Outro2()
+    {
+        List<Story> outro = GameManager.InGameData.StoryWrapper[Define.StoryInteractOBJs.outro][0];
 
         GetText((int)Texts.NarrationTxt).text = outro[3].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.Outro4);
@@ -203,8 +307,9 @@ public class Narration : UI_Scene
         yield return Seconds[4];
 
         GameManager.UI.ShowPopupUI<UI_Outro>();
-        this.gameObject.SetActive(false);
+      
 
+        NextStep();
 
     }
     IEnumerator roomM()
@@ -229,9 +334,10 @@ public class Narration : UI_Scene
         
         GetText((int)Texts.NarrationTxt).text = roomM[4].Script.Replace("/n", "\n");
         GameManager.Sound.Play(Define.SFX.roomM5);
-        yield return Seconds[6];
+        yield return new WaitForSeconds(6.8f);
 
-        this.gameObject.SetActive(false);
+
+        NextStep();
     }
 
     #endregion

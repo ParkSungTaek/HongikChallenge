@@ -25,8 +25,8 @@ public class UI_Room013 : UI_Popup
     enum Texts
     {
         Title,
-        Name,
-        About,
+        //Name,
+        //About,
         PamphletText,
     }
     public override void Init()

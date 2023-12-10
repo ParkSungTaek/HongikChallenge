@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractField: 0
-  _Name: 30
-  _info0: 31
-  _info1: 32
-  _Script: 29
+  _Name: 33
+  _info0: 34
+  _info1: 35
+  _Script: 32
 --- !u!65 &1275336526561323070
 BoxCollider:
   m_ObjectHideFlags: 0

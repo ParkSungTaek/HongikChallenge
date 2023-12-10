@@ -8,6 +8,8 @@ using Client;
 
 public abstract class UI_Base : MonoBehaviour
 {
+    const float StandardWidth = 3200f;
+    static float ratio = 0;
     /// <summary>
     /// 관리할 산하 오브젝트들
     /// </summary>
@@ -29,10 +31,25 @@ public abstract class UI_Base : MonoBehaviour
         UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
         _objects.Add(typeof(T), objects);
 
+
+
         for (int i = 0; i < names.Length; i++)
         {
             if (typeof(T) == typeof(GameObject))
                 objects[i] = Util.FindChild(gameObject, names[i], true);
+            else if (typeof(T) == typeof(TMP_Text))
+            {
+                objects[i] = Util.FindChild<TMP_Text>(gameObject, names[i], true);
+                if(ratio == 0)
+                {
+                    ratio = Screen.width / StandardWidth;
+                    Debug.Log($"ratio == {ratio}");
+                }
+                TMP_Text text = objects[i] as TMP_Text;
+                text.fontSize = text.fontSize * ratio;
+
+
+            }
             else
                 objects[i] = Util.FindChild<T>(gameObject, names[i], true);
 

@@ -20,7 +20,6 @@ public class Define
 
     public enum Videos
     {
-        TmpTest,
         MaxCount
     }
     public enum BGM
@@ -36,13 +35,7 @@ public class Define
         sfx_touchDoor,
         sfx_touchPaper,
         sfx_touchScreen,
-
-        Intro,
-        Outro,
-        roomM,
         
-        TMP_Walk,
-        TMP_Door,
 
         Intro1,
         Intro2,
@@ -134,6 +127,9 @@ public class Define
         Curating,
 
         CuratingS,
+        CuratingS_Name,
+        CuratingS_info0,
+        CuratingS_info1,
 
         CuratingY,
         CuratingY_Name,

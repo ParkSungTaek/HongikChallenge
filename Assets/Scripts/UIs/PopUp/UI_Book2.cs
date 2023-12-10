@@ -14,7 +14,10 @@ public class UI_Book2 : UI_Popup
     }
     enum Texts
     {
-
+        Title,
+        Name,
+        About,
+        PamphletText,
     }
 
     public override void Init()

@@ -1,10 +1,8 @@
 using UnityEngine;
 using System.Collections;
-using GoogleSheetsToUnity;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
-using GoogleSheetsToUnity.ThirdPary;
 using Client;
 using static Define;
 
@@ -141,11 +139,6 @@ public class GoogleSheet : ScriptableObject
 
 
             GameManager.InGameData.QuestionWrapper.Add(tmpQuestion);
-
-
-#if UNITY_EDITOR
-            Debug.Log("Àß µå°¨");
-#endif
 
         }
         catch

@@ -16,8 +16,17 @@ public class DoorActiveBound : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _door.CanOpen = true;
-        _door.EnterBound();
+       
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if(!GameManager.InGameData.IntroPlay && !GameManager.InGameData.IntroPlay)
+        {
+            GameManager.InGameData.IntroPlay = true;
+            GameManager.InGameData.narration.PlayIntro2();
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         _door.CanOpen = false;

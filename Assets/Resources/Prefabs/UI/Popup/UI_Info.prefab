@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 7249409947160587288}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -263, y: 297}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.35, y: 0.675}
+  m_AnchorMax: {x: 0.62087506, y: 0.7396389}
+  m_AnchoredPosition: {x: -215, y: -1.5}
+  m_SizeDelta: {x: -670, y: -43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1151751784637545276
 CanvasRenderer:
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -113.92554, y: 0, z: -605.9094, w: 0}
+  m_margin: {x: -115.57666, y: 0, z: -605.9094, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -293,8 +293,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4283376150619349301}
   m_HandleRect: {fileID: 896138211594675508}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.2782526
+  m_Value: 0.9999998
+  m_Size: 0.23317294
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -334,7 +334,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.0003}
-  m_SizeDelta: {x: 0, y: 1479.4946}
+  m_SizeDelta: {x: 0, y: 1766.5566}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &3909514160940794675
 GameObject:
@@ -373,10 +373,10 @@ RectTransform:
   m_Father: {fileID: 7984028415943555608}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 34.71118, y: -131.47516}
-  m_SizeDelta: {x: -2029.931, y: -1011.3268}
+  m_AnchorMin: {x: 0.32562494, y: 0.26180556}
+  m_AnchorMax: {x: 0.68200004, y: 0.5543333}
+  m_AnchoredPosition: {x: 76, y: 9}
+  m_SizeDelta: {x: 29.06897, y: 7.673218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5151475737903841764
 CanvasRenderer:
@@ -446,82 +446,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &4112456313619148284
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4029220474513583260}
-  - component: {fileID: 3111237700851512736}
-  - component: {fileID: 1284597537395554317}
-  m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &4029220474513583260
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4112456313619148284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7984028415943555608}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3200, y: 1440.6251}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3111237700851512736
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4112456313619148284}
-  m_CullTransparentMesh: 1
---- !u!114 &1284597537395554317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4112456313619148284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.44705883}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e449a14b16ea0664fb6f45410a5c850e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4921773244093484857
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,10 +479,10 @@ RectTransform:
   m_Father: {fileID: 7249409947160587288}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -259, y: 211}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.35, y: 0.63127786}
+  m_AnchorMax: {x: 0.45462498, y: 0.675}
+  m_AnchoredPosition: {x: 52.450012, y: -9.5}
+  m_SizeDelta: {x: -135.09998, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1343606350693476529
 CanvasRenderer:
@@ -590,8 +514,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC7A5\uC11C\uC601"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2030cc11793181e41a74bc54c75544f7, type: 2}
-  m_sharedMaterial: {fileID: 2056486689247336145, guid: 2030cc11793181e41a74bc54c75544f7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4d238f2647c1a324daea14c6c88ecb06, type: 2}
+  m_sharedMaterial: {fileID: 4080497681814371027, guid: 4d238f2647c1a324daea14c6c88ecb06, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1001,8 +925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72948503}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0025634766, y: -539.63}
-  m_SizeDelta: {x: 0.005, y: 1079.3}
+  m_AnchoredPosition: {x: -0.0025634766, y: -644.33}
+  m_SizeDelta: {x: 0.005, y: 1288.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &870295511731335945
 CanvasRenderer:
@@ -1075,10 +999,10 @@ RectTransform:
   m_Father: {fileID: 7249409947160587288}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -268, y: 159}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.35, y: 0.60547227}
+  m_AnchorMax: {x: 0.71635824, y: 0.6444723}
+  m_AnchoredPosition: {x: -365.55, y: -20.3}
+  m_SizeDelta: {x: -971.1, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2311703846932728070
 CanvasRenderer:
@@ -1111,8 +1035,8 @@ MonoBehaviour:
   m_text: "2022, \uB2E8\uCC44\uB110 \uBE44\uB514\uC624, \uD751\uBC31, \uC0AC\uC6B4\uB4DC,
     1\uBD84, \uC791\uAC00 \uC18C\uC7A5."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2030cc11793181e41a74bc54c75544f7, type: 2}
-  m_sharedMaterial: {fileID: 2056486689247336145, guid: 2030cc11793181e41a74bc54c75544f7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4d238f2647c1a324daea14c6c88ecb06, type: 2}
+  m_sharedMaterial: {fileID: 4080497681814371027, guid: 4d238f2647c1a324daea14c6c88ecb06, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1462,7 +1386,6 @@ RectTransform:
   - {fileID: 1500958271611263225}
   - {fileID: 3646340508850355681}
   - {fileID: 7984028415794748386}
-  - {fileID: 4029220474513583260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1567,7 +1490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: -12}
   m_SizeDelta: {x: 0.0001, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7984028417262824045
@@ -1598,10 +1521,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38\uAE30\uC870\uBB38"
+  m_text: "      \uD604\uC2E4\uC5D0 \uAC00\uB2FF\uC544 \uC788\uC9C0 \uC54A\uC740
+    \uC874\uC7AC\uB4E4\uC744 \uBB34\uC6A9\uD55C \uAC83\uC774\uB77C \uCE6D\uD55C\uB2E4\uBA74,
+    \uADF8 \uC584\uD30D\uD55C \uBB34\uC6A9\uC131\uC5D0 \uAE30\uB304 \uC6B0\uB9AC\uC758
+    \uC138\uACC4\uB294 \uC21C\uC2DD\uAC04\uC5D0 \uC885\uB9D0\uC5D0 \uC774\uB974\uACE0
+    \uB9D0 \uAC83\uC774\uB2E4. \uADF8\uB807\uAE30\uC5D0 \uC6B0\uB9AC\uB294 \uCC28\uB9C8
+    \uAE30\uB85D\uB418\uC9C0 \uBABB\uD55C \uC21C\uAC04\uACFC \uBBF8\uCC98 \uBA85\uBA85\uB418\uC9C0
+    \uBABB\uD55C \uB300\uC0C1\uC5D0\uAC8C\uB9C8\uC800\uB3C4 \uC6B0\uB9AC \uB9C8\uC74C\uC758
+    \uD55C \uCF20\uC744 \uD06C\uAC8C \uB0B4\uC5B4\uC900 \uCC44 \uC0B4\uC544\uAC04\uB2E4.
+    \uADF8\uAC83\uC740 \uC6B0\uC5F4\uC774\uB098 \uC120\uD638\uB97C \uB098\uB20C \uC218
+    \uC5C6\uB294 \uD544\uC218\uBD88\uAC00\uACB0\uD55C \uD589\uC704\uB85C, \uAC00\uB2A5\uC131\uC758
+    \uC138\uACC4\uC5D0 \uB358\uC838\uC9C4 \uC874\uC7AC\uC5D0\uAC8C \uD544\uC5F0\uC73C\uB85C\uC368
+    \uC8FC\uC5B4\uC9C4 \uCC45\uBB34\uC774\uB2E4. \uADF8\uB9AC\uACE0 \uC778\uAC04\uC740
+    \uADF8 \uCC45\uBB34\uAC00 \uC2E4\uC874\uD55C\uB2E4\uB294 \uC99D\uC5B8\uC790\uC774\uB2E4."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e95daa1d00fef2f489ff6533585ea989, type: 2}
-  m_sharedMaterial: {fileID: 8856350493571079714, guid: e95daa1d00fef2f489ff6533585ea989, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4c22887b1048e584b8d625733d84607e, type: 2}
+  m_sharedMaterial: {fileID: -3690636115805761513, guid: 4c22887b1048e584b8d625733d84607e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1637,7 +1572,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 60
+  m_lineSpacing: 30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1661,7 +1596,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.235168, y: 18.04187, z: 5.880615, w: 8.21283}
+  m_margin: {x: 9.235168, y: 18.04187, z: 150.53809, w: 8.21283}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

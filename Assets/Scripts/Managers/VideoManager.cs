@@ -12,7 +12,6 @@ public class VideoManager
     // Start is called before the first frame update
     public void Init()
     {
-        Load(Define.Videos.TmpTest);
 
     }
     /// <summary>

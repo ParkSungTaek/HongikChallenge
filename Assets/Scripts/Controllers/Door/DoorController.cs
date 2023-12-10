@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using static Define;
+using Client;
 
 public class DoorController : MonoBehaviour
 {
     // Start is called before the first frame update
     GameObject _doorPhysics;
     DoorActiveBound _myBound;
-    TextMeshPro _textMeshPro;
     Vector3 _moveDelta = new Vector3(0,0,-80);
     const float _openDoorTime = 2.0f;
     const float _tick = 1f / 60f;
@@ -17,12 +18,26 @@ public class DoorController : MonoBehaviour
     static WaitForSeconds Tick = new WaitForSeconds(_tick);
     bool _canMove = true;
     bool _isOpen = false;
-    public bool CanOpen { get; set; } = false;  
+    public bool CanOpen { get; set; } = false;
 
-    public void EnterBound()
+
+
+    enum DoorType
     {
-        _textMeshPro.text= "문 열기 가능!";
+        ExceptionAtEnd,
+        VideoStart,
+
+        MaxCouunt
     }
+
+    
+    [SerializeField]
+    bool ExceptionAtEnd = false;
+    [SerializeField]
+    bool VideoStart = false;
+    [SerializeField]
+    public bool ActiveIntro = false;
+
     public void ExitBound()
     {
         //_textMeshPro.text = "문!";
@@ -31,8 +46,11 @@ public class DoorController : MonoBehaviour
     void Start()
     {
         _myBound = transform.Find("DoorActiveBound").GetComponent<DoorActiveBound>();
-        _textMeshPro = transform.Find("TextGuide").GetComponent<TextMeshPro>();
         _myBound.SetDoor(this);
+        if (ExceptionAtEnd)
+        {
+            GameManager.InGameData.EndDoor = this;
+        }
     }
 
     public void SetDoorPhysics(GameObject go)
@@ -40,30 +58,25 @@ public class DoorController : MonoBehaviour
         _doorPhysics = go;
     }
 
-    public void OpenOrClose()
+    public void OpenSequence()
     {
-        if (CanOpen)
+        if (GameManager.InGameData.CanOpenDoor)
         {
-            if (_isOpen)
+            StartCoroutine(OpenDoor());
+            if (VideoStart)
             {
-                StartCoroutine(CloseDoor());
-                Debug.Log("OpenCo");
+                GameManager.InGameData.MyVideoController.VideoPlay();
             }
-            else
-            {
-                StartCoroutine(OpenDoor());
-                Debug.Log("CloseCo");
 
-            }
         }
+
     }
 
-    
     IEnumerator OpenDoor()
     {
-        if (_canMove && !_isOpen)
+        if ((!GameManager.InGameData.CantOpen() || ExceptionAtEnd) && !_isOpen && _canMove)
         {
-            GameManager.Sound.Play(Define.SFX.TMP_Door);
+            GameManager.Sound.Play(Define.SFX.sfx_touchDoor);
             _canMove = false;
             _isOpen = true;
             
@@ -79,16 +92,26 @@ public class DoorController : MonoBehaviour
                 yield return null;
             }
 
-            _canMove = true;
 
+            yield return new WaitForSeconds(5f);
+            if (ExceptionAtEnd && GameManager.InGameData.End())
+            {
 
+            }
+            else
+            {
+                _canMove = true;
+                StartCoroutine(CloseDoor());
+            }
+            
         }
+
     }
     IEnumerator CloseDoor()
     {
         if (_canMove && _isOpen)
         {
-            GameManager.Sound.Play(Define.SFX.TMP_Door);
+            GameManager.Sound.Play(Define.SFX.sfx_touchDoor);
             _canMove = false;
             _isOpen = false;
 

@@ -714,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4124346232676489100, guid: ce8ee79dc951bf249896f3c524bdb645, type: 3}
       propertyPath: BearType
-      value: 43
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 8578959037064367156, guid: ce8ee79dc951bf249896f3c524bdb645, type: 3}
       propertyPath: m_Name

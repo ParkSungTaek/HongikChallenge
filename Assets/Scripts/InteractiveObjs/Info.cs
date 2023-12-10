@@ -15,7 +15,7 @@ public class Info : InteractObj
 
     protected override void InteractAction()
     {
-        if (_Script == Define.StoryInteractOBJs.CuratingM || _Script == Define.StoryInteractOBJs.CuratingY)
+        if (_Script == Define.StoryInteractOBJs.CuratingM || _Script == Define.StoryInteractOBJs.CuratingY || _Script == Define.StoryInteractOBJs.CuratingS)
         {
             GameManager.UI.ShowPopupUI<UI_Info>().SetText(_Name, _info0, _info1, _Script);
         }

@@ -8,6 +8,7 @@ namespace Client
     {
         public override void Init()
         {
+
             GameManager.UI.SetCanvas(gameObject, false);
         }
     }

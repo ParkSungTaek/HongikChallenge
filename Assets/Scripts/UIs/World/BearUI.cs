@@ -38,6 +38,7 @@ public class BearUI : UI_Popup
 
     }
 
+
     void ShowText()
     {
         GetText((int)Texts.BearText).text = ScenarioList[textIDX].Script.Replace("/n","\n");
@@ -64,9 +65,21 @@ public class BearUI : UI_Popup
         }
 
     }
+
+    private void Awake()
+    {
+        Bind<Button>(typeof(Buttons));
+        Bind<TMP_Text>(typeof(Texts));
+
+        ButtonBind();
+    }
+
     private void OnEnable()
     {
-        Init();
+
+        ScenarioList = GameManager.InGameData.StoryWrapper[BearType][Scenario];
+        MaxIIDX = GameManager.InGameData.StoryWrapper[BearType][Scenario].Count - 1;
+        ShowText();
     }
 
 
