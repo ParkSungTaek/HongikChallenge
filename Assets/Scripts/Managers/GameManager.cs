@@ -59,8 +59,8 @@ public class GameManager : MonoBehaviour
 
 
             /// 네트워크 통신부
-            Instance.StartCoroutine(Network.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120",Network.data.GetStoryData));
-            Instance.StartCoroutine(Network.RequestAndSetItemDatas("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120", Network.data.GetQuestionData , "924231598"));
+            Instance.StartCoroutine(Network.GoogleSheetsDataParsing("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120",Network.data.GetStoryData));
+            Instance.StartCoroutine(Network.GoogleSheetsDataParsing("1nBrhxNgQEHWYugVG7jgLYT7q17WND4ErQoTBJJk2120", Network.data.GetQuestionData , "924231598"));
 
         }
 

@@ -26,7 +26,7 @@ public class NetworkManager
     /// <param name="startCell"> 시작 셀 default A1</param>
     /// <param name="endCell"> 끝 셀 default E </param>
     /// <returns></returns>
-    public IEnumerator RequestAndSetItemDatas(string GoogleSheetsID, Action<string> ManufactureData, string WorkSheetsID = "0", string endCell = "Z", string startCell = "A2")
+    public IEnumerator GoogleSheetsDataParsing(string GoogleSheetsID, Action<string> ManufactureData, string WorkSheetsID = "0", string endCell = "Z", string startCell = "A2")
     {
         
         StringBuilder sb = new StringBuilder();
