@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -42,8 +43,23 @@ public class CameraRotate : MonoBehaviour
     void Update()
 
     {
+#if UNITY_EDITOR
+        /// UI 와 상호작용 중이 아니라면
+        if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                float XRotateSize = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
+                // 위아래로 움직인 마우스의 이동량 * 속도에 따라 카메라가 회전할 양 계산(하늘, 바닥을 바라보는 동작)
+                float YRotateSize = Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime;
+                xRotate -= YRotateSize;
+                // 위아래 회전량을 더해주지만 -45도 ~ 80도로 제한 (-45:하늘방향, 80:바닥방향)
+                xRotate = Mathf.Clamp(xRotate, -70, 80);
+                //시점이 망가지는것을 방지해서 카메라는 X축만 
+                transform.localRotation = Quaternion.Euler(xRotate, 0f, 0f);
+                // Y축 회전은 Player에서
+                Body.transform.Rotate(Vector3.up * XRotateSize);
 
-#if UNITY_ANDROID || UNITY_IOS || UNITY_IPHONE
+            }
+#elif UNITY_ANDROID || UNITY_IOS || UNITY_IPHONE
         foreach (Touch touch in Input.touches)
         {
             if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
@@ -70,23 +86,6 @@ public class CameraRotate : MonoBehaviour
 
             }
         }
-#elif UNITY_EDITOR             
-        /// UI 와 상호작용 중이 아니라면
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            float XRotateSize = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
-            // 위아래로 움직인 마우스의 이동량 * 속도에 따라 카메라가 회전할 양 계산(하늘, 바닥을 바라보는 동작)
-            float YRotateSize = Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime;
-            xRotate -= YRotateSize;
-            // 위아래 회전량을 더해주지만 -45도 ~ 80도로 제한 (-45:하늘방향, 80:바닥방향)
-            xRotate = Mathf.Clamp(xRotate, -70, 80);
-            //시점이 망가지는것을 방지해서 카메라는 X축만 
-            transform.localRotation = Quaternion.Euler(xRotate, 0f, 0f);
-            // Y축 회전은 Player에서
-            Body.transform.Rotate(Vector3.up * XRotateSize);
-
-        }
-
 #endif
 
 

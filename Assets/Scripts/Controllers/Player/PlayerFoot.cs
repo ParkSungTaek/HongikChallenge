@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFoot : MonoBehaviour
 {
     PlayableController MyPlayer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,6 @@ public class PlayerFoot : MonoBehaviour
         if(!MyPlayer.CanJump )
             GameManager.Sound.Play(Define.SFX.sfx_jumpLand);
 
-        MyPlayer.CanJump = true;
     }
     private void OnCollisionEnter(Collision collision)
     {

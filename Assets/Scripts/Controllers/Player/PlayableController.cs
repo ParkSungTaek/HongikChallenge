@@ -18,11 +18,12 @@ public class PlayableController : MonoBehaviour
 
 
     /// <summary> 플레이어 스피드 </summary>
-    
     float _speed = 2f;
     /// <summary> 플레이어 Rigidbody </summary>
     Rigidbody _myRd;
 
+    /// <summary> 플레이어 점프타임 </summary>
+    WaitForSeconds _jumpTime = new WaitForSeconds(0.6f);
 
     public enum WallDetectorEnum
     {
@@ -144,10 +145,19 @@ public class PlayableController : MonoBehaviour
     {
         if (CanJump)
         {
+            _myRd.velocity = Vector3.zero;
+            _myRd.angularVelocity = Vector3.zero;
             CanJump = false;
-            GameManager.Sound.Play(Define.SFX.sfx_jumpUp);
             _myRd.AddForce(transform.up * _JumpPower, ForceMode.Impulse);
+            StartCoroutine(JumpDeltaTime());
         }
+    }
+
+    IEnumerator JumpDeltaTime()
+    {
+        yield return _jumpTime;
+        CanJump = true;
+
     }
 
     #endregion Jump
